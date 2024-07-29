@@ -1,0 +1,54 @@
+/* General body styles */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f4f4; /* Light grey background for better contrast */
+    overflow: hidden; /* Prevents scrolling to keep the layout clean */
+  }
+  
+  /* Styles for JWPlayer */
+  .jwplayer {
+    position: absolute !important;
+  }
+  
+  .jwplayer.jw-flag-aspect-mode {
+    min-height: 100%;
+    max-height: 100%;
+  }
+  
+  /* Styles for the Telegram Banner link */
+  .tg-banner {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #1da1f2, #0077b5); /* Gradient background */
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none; /* Remove default link styling */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Softer, larger shadow for depth */
+    z-index: 1000; /* Keep the banner on top */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow transitions */
+  }
+  
+  .tg-banner:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Larger shadow on hover */
+  }
+  
+  .tg-banner img {
+    width: 36px; /* Adjusted size for better visibility */
+    height: 36px; /* Adjusted size for better visibility */
+    margin-right: 12px;
+    border-radius: 50%; /* Circular icon for a modern look */
+    border: 2px solid white; /* Border around the icon */
+  }
+  
+  .tg-banner span {
+    font-size: 18px; /* Larger font for emphasis */
+    font-weight: 600; /* Slightly bolder font */
+    letter-spacing: 0.5px; /* Slightly increased spacing for readability */
+  }
+  
