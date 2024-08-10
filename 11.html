@@ -397,7 +397,7 @@ button:hover {
     
     
     
-<!------
+<!------>
 
         <div class="post1">
         <div  class="welcome">
@@ -549,6 +549,56 @@ function myFunction() {
             share = "whatsapp://send?text=" + link + text + text2;
     </script>
 
+<script type="text/javascript">
+var name = localStorage.getItem("name");
+$("#getname").html(name);
+$("#select").click(function () {
+    var name = $("#name").val();
+    localStorage.setItem("name", name);
+    var number = $("#grade").val();
+    if (name.length < 5 || name.length > 150) {
+        alert(errorname);
+    } else if (number === "0") {
+        alert(errornumber);
+    } else {
+        $(".step1").fadeOut(0);
+        $(".step2").fadeIn(500);
+        $("#pastname").html(name);
+        $("#pastnumber").html(number);
+    }
+});
+$(".yes").click(function () {
+    $(".welcome").fadeOut(0);
+    $(".step2").fadeOut(0);
+    $("#checking").fadeIn(1000);
+    var i = 0;
+    var interval = setInterval(function () {
+        i += 1;
+        $("#percentage").text(i + "%");
+        $("#fill").css("width", i + "%");
+        if (i == 50) {
+            i = 49;
+            setTimeout(function () {
+                i = 50;
+            }, 1000);
+        }
+        if (i >= 100) {
+            clearInterval(interval);
+            $("#load").fadeOut(0);
+            $("#check").fadeIn(0);
+            setTimeout(function () {
+                $("#checking").fadeOut(0);
+                $("#share").fadeIn(1000);
+                $("#getname").html($("#name").val());
+            }, 1000);
+        }
+    }, 50);
+});
+$(".no").click(function () {
+    $(".step2").fadeOut(0);
+    $(".step1").fadeIn(500);
+});  
+</script>  
 <script type="text/javascript">  
 var swidth = localStorage.getItem(saved);
 if (swidth !== null) {
