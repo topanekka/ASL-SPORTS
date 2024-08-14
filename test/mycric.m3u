@@ -1,0 +1,26 @@
+
+#EXTM3U
+#EXTINF:-1 tvg-id="1" tvg-name="Star Sports 1 HD" tvg-country="IN" tvg-logo="https://i.postimg.cc/QM22x0Qj/Star-Sports-1-HD.png" tvg-chno="1" group-title="FireSports Mini",Star Sports 1 HD
+https://teachub.fun/S1/stream.m3u8?id=1&e=.m3u8
+#EXTINF:-1 tvg-id="2" tvg-name="Star Sports 1 Hindi HD" tvg-country="IN" tvg-logo="https://i.postimg.cc/MZbCq0v8/Star-Sports-1-HD-Hindi.png" tvg-chno="2" group-title="FireSports Mini",Star Sports 1 Hindi HD
+https://teachub.fun/S1/stream.m3u8?id=2&e=.m3u8
+#EXTINF:-1 tvg-id="3" tvg-name="Sky Sports Cricket" tvg-country="IN" tvg-logo="https://i.postimg.cc/13TTJJYD/Sky-Sports-Cricket.png" tvg-chno="3" group-title="FireSports Mini",Sky Sports Cricket
+https://teachub.fun/S1/stream.m3u8?id=3&e=.m3u8
+#EXTINF:-1 tvg-id="4" tvg-name="A Sports HD" tvg-country="IN" tvg-logo="https://i.postimg.cc/4dR0TnGd/A-Sports-HD.png" tvg-chno="4" group-title="FireSports Mini",A Sports HD
+https://teachub.fun/S1/stream.m3u8?id=4&e=.m3u8
+#EXTINF:-1 tvg-id="5" tvg-name="Sky Sport 3 NewZealand" tvg-country="IN" tvg-logo="https://i.postimg.cc/8Pz0Gq2h/Sky-Sports-New-Zealand.png" tvg-chno="5" group-title="FireSports Mini",Sky Sport 3 NewZealand
+https://teachub.fun/S1/stream.m3u8?id=5&e=.m3u8
+#EXTINF:-1 tvg-id="6" tvg-name="PTV Sports HD" tvg-country="IN" tvg-logo="https://i.postimg.cc/cLV9Q6rm/PTV-Sports.png" tvg-chno="6" group-title="FireSports Mini",PTV Sports HD
+https://teachub.fun/S1/stream.m3u8?id=6&e=.m3u8
+#EXTINF:-1 tvg-id="7" tvg-name="Ten Sports HD" tvg-country="IN" tvg-logo="https://i.postimg.cc/mDVy6r2K/Ten-Sports-HD.png" tvg-chno="7" group-title="FireSports Mini",Ten Sports HD
+https://teachub.fun/S1/stream.m3u8?id=7&e=.m3u8
+#EXTINF:-1 tvg-id="8" tvg-name="TNT Sports 1" tvg-country="IN" tvg-logo="https://i.postimg.cc/qRLxZxGk/TNT-Sports-1.png" tvg-chno="8" group-title="FireSports Mini",TNT Sports 1
+https://teachub.fun/S1/stream.m3u8?id=8&e=.m3u8
+#EXTINF:-1 tvg-id="9" tvg-name="Willow by Cricbuzz" tvg-country="IN" tvg-logo="https://i.postimg.cc/1tJDK59X/Willow-by-Cricbuzz.png" tvg-chno="9" group-title="FireSports Mini",Willow by Cricbuzz
+https://teachub.fun/S1/stream.m3u8?id=9&e=.m3u8
+#EXTINF:-1 tvg-id="10" tvg-name="Sky Sports Mix" tvg-country="IN" tvg-logo="https://i.postimg.cc/kXkKsHdQ/Sky-Sports-Mix.png" tvg-chno="10" group-title="FireSports Mini",Sky Sports Mix
+https://teachub.fun/S1/stream.m3u8?id=10&e=.m3u8
+#EXTINF:-1 tvg-id="11" tvg-name="ESPN" tvg-country="IN" tvg-logo="https://i.postimg.cc/cHbrHKxR/ESPN.png" tvg-chno="11" group-title="FireSports Mini",ESPN
+https://teachub.fun/S1/stream.m3u8?id=11&e=.m3u8
+#EXTINF:-1 tvg-id="12" tvg-name="Super Sport Cricket" tvg-country="IN" tvg-logo="https://i.postimg.cc/YCMDkDHs/Super-Cricket.png" tvg-chno="12" group-title="FireSports Mini",Super Sport Cricket
+https://teachub.fun/S1/stream.m3u8?id=12&e=.m3u8
