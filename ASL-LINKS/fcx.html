@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor de M3U</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #875a1f;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            background-color: #282828;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .column:last-child {
+            border-right: none;
+        }
+
+        .column h2 {
+            text-align: center;
+            margin: 0 0 20px 0;
+            font-size: 24px;
+            color: #007BFF;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            margin-bottom: 8px;
+            text-align: left;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 16px;
+        }
+
+        ul li img {
+            margin-right: 5px;
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        ul li:hover {
+            background-color: #007BFF;
+            color: #fff;
+            transform: scale(1.02);
+        }
+
+        ul li:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .column {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .column:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column" id="groups">
+            <h2>Group</h2>
+            <ul id="groupList"></ul>
+        </div>
+        <div class="column" id="channels">
+            <h2>Matches</h2>
+            <ul id="channelList"></ul>
+        </div>
+    </div>
+
+    <script>
+        const m3uUrl = 'https://raw.githubusercontent.com/alex4528/fancode/main/fc.m3u'; // Substitua pela URL da sua lista M3U
+
+        const groupList = document.getElementById('groupList');
+        const channelList = document.getElementById('channelList');
+
+        let groups = {};
+
+        fetch(m3uUrl)
+            .then(response => response.text())
+            .then(data => {
+                parseM3U(data);
+                displayGroups();
+            })
+            .catch(error => console.error('Erro ao carregar a lista M3U:', error));
+
+        function parseM3U(data) {
+            const lines = data.split('\n');
+            let currentGroup = '';
+
+            lines.forEach(line => {
+                if (line.startsWith('#EXTINF')) {
+                    const groupTitleMatch = line.match(/group-title="([^"]+)"/);
+                    const channelName = line.split(',')[1];
+                    const logoUrlMatch = line.match(/tvg-logo="([^"]+)"/);
+                    const streamUrl = lines[lines.indexOf(line) + 1].trim();
+
+                    if (groupTitleMatch && channelName && streamUrl) {
+                        const groupTitle = groupTitleMatch[1];
+                        const logoUrl = logoUrlMatch ? logoUrlMatch[1] : '';
+
+                        if (!groups[groupTitle]) {
+                            groups[groupTitle] = [];
+                        }
+
+                        groups[groupTitle].push({ name: channelName, url: streamUrl, logo: logoUrl });
+                    }
+                }
+            });
+        }
+
+        function displayGroups() {
+            for (const group in groups) {
+                const li = document.createElement('li');
+                li.textContent = group;
+                li.onclick = () => displayChannels(group);
+                groupList.appendChild(li);
+            }
+        }
+
+        function displayChannels(group) {
+            channelList.innerHTML = ''; // Limpar a lista de canais
+            groups[group].forEach(channel => {
+                const li = document.createElement('li');
+                const img = document.createElement('img');
+                img.src = channel.logo;
+                img.alt = channel.name;
+                li.appendChild(img);
+                li.appendChild(document.createTextNode(channel.name));
+                li.onclick = () => window.open(channel.url, '_blank');
+                channelList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
