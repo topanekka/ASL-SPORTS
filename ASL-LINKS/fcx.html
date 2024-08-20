@@ -173,7 +173,7 @@
                 img.alt = channel.name;
                 li.appendChild(img);
                 li.appendChild(document.createTextNode(channel.name));
-                li.onclick = () => window.open(channel.url, '_blank');
+                li.onclick = () => window.open("https://jw-player-tg.vercel.app/?videoUrl="+channel.url, '_blank');
                 channelList.appendChild(li);
             });
         }
