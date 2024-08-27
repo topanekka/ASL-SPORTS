@@ -1,3 +1,75 @@
+<style>
+
+#mask {
+    background-color:#666;
+	background:url(https://keyframe.com.br/wp-content/uploads/2013/01/bg_pop.png) repeat;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9000;
+}
+#popup {
+	color: #000066;
+    height: 200%;
+	display:none;
+    left: 20;
+    margin-left: 0px;
+    margin-top: 0px;
+    padding: 0;
+    position: fixed;
+    top: ;
+    opacity:0.2;
+    width: 500px;
+	z-index:9999;
+}
+#fechar{
+	position:relative;}
+#fechar a{
+	position:absolute;
+	right:-27px;
+	top:0;
+	border:1px solid #F00;
+	width:24px;
+	height:24px;
+	text-indent:-4000px;
+	overflow:hidden;
+	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+#fechar a:hover{
+	opacity:0.7;
+	filter: alpha(opacity = 70);}
+
+</style>
+
+
+
+
+
+<body>
+	
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>popupjs</title>
+
+</head>
+
+<body>
+<div id="mask" onclick="javascript: fechar();"></div>
+<div id="popup" class="popup">    
+    <div id="fechar"><a href="javascript: fechar();">Fechar</a></div>
+    <div id="img_pop"><iframe scrolling="no" src="https://asl-sports.vercel.app/neon.html" style="width: 100%; height: 900px;  padding: 0;border: 1px dotted grey;" frameborder="0"></iframe></a></div>    
+</div>
+
 <script language="javascript">
 <!--
 // == Begin Free HTML Source Code Obfuscation Protection from https://snapbuilder.com == //
@@ -196,8 +268,43 @@ document.write(unescape('%3C%2F%64%69%76%3E%0A%20%20%20%20%20%20%3C%2F%64%69%76%
 //-->
           </script>
           
-          
+          <!-- BEGIN: Powered by Supercounters.com -->
+<center><script type="text/javascript" src="//widget.supercounters.com/ssl/hit.js"></script><script type="text/javascript">sc_hit(1697919,0,5);</script><br><noscript><a href="http://www.supercounters.com/">free online counter</a></noscript>
+</center>
+<!-- END: Powered by Supercounters.com -->
+
 <!-- BEGIN: Powered by Supercounters.com -->
 <br><center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script><script type="text/javascript">sc_online_i(1697918,"ffffff","000100");</script><br><noscript><a href="https://www.supercounters.com/">free online counter</a></noscript>
 </center>
 <!-- END: Powered by Supercounters.com -->
+
+
+
+</body>
+</html>
+
+
+</body>
+
+
+
+
+
+<script>
+
+	// Função que fecha o pop-up ao clicar no botao fechar
+	function fechar(){
+		document.getElementById('popup').style.display = 'none';
+		document.getElementById('mask').style.display = 'none';
+	}
+	// Aqui definimos o tempo para fechar o pop-up automaticamente em milissengundos
+	function abrir(){
+		document.getElementById('popup').style.display = 'block';
+		setTimeout ("fechar()", 15000);
+	}
+	function trocaordem(){
+		document.getElementById("popup").style.zIndex="1";
+	}
+	abrir();
+
+</script>
