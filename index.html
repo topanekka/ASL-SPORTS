@@ -1,74 +1,3 @@
-<style>
-
-#mask {
-    background-color:#666;
-	background:url(https://keyframe.com.br/wp-content/uploads/2013/01/bg_pop.png) repeat;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 9000;
-}
-#popup {
-	color: #000066;
-    height: 200%;
-	display:none;
-    left: 20;
-    margin-left: 0px;
-    margin-top: 0px;
-    padding: 0;
-    position: fixed;
-    top: ;
-    opacity:0;
-    width: 500px;
-	z-index:9999;
-}
-#fechar{
-	position:relative;}
-#fechar a{
-	position:absolute;
-	right:-27px;
-	top:0;
-	border:1px solid #F00;
-	width:24px;
-	height:24px;
-	text-indent:-4000px;
-	overflow:hidden;
-	
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
-#fechar a:hover{
-	opacity:0.7;
-	filter: alpha(opacity = 70);}
-
-</style>
-
-
-
-
-
-<body>
-	
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ASL SPORTS</title>
-
-</head>
-
-<body>
-<div id="mask" onclick="javascript: fechar();"></div>
-<div id="popup" class="popup">    
-    <div id="fechar"><a href="javascript: fechar();">Fechar</a></div>
-    <div id="img_pop"><iframe scrolling="no" src="https://asl-sports.vercel.app/neon.html" style="width: 100%; height: 900px;  padding: 0;border: 1px dotted grey;" frameborder="0"></iframe></a></div>    
-</div>
 
 <script language="javascript">
 <!--
@@ -195,7 +124,7 @@ $('#videoLink2')
               
               
     
-        <!-------- <div class="box1" id="s18" style="cursor: pointer;">  <div class="card w-40 bg-gray-100 rounded-xl bg-base-100 shadow-lg h-48 mb-4 flex flex-col"><a href="https://bindaaslinks.com/MFQV"><img class="h-28 mt-5 m-auto opacity-100" loading="lazy" src="https://te.legra.ph/file/eb63a5b5427a9e3f76148.jpg" /> <div class="mb-5 opacity-100">
+        <!--------> <div class="box1" id="s18" style="cursor: pointer;">  <div class="card w-40 bg-gray-100 rounded-xl bg-base-100 shadow-lg h-48 mb-4 flex flex-col"><a href="https://asl-sports.vercel.app/ASL-LINKS/duleep.html"><img class="h-28 mt-5 m-auto opacity-100" loading="lazy" src="https://te.legra.ph/file/eb63a5b5427a9e3f76148.jpg" /> <div class="mb-5 opacity-100">
                   <h2 class="text-center text-sm font-bold">Duleep Trophy - 2024</h2>
                   <div class="flex justify-center space-x-1">
                     <p class="text-xs text-center">5th sept - 22nd Sept<br>Cricket</p>
@@ -245,7 +174,7 @@ $('#videoLink2')
               </div></a></div><!-------->
           
           
-          <!-------->   <div class="box1" id="s18khel" style="cursor: pointer;">  <div class="card w-40 bg-gray-100 rounded-xl bg-base-100 shadow-lg h-48 mb-4 flex flex-col"><a href="https://asl-sports.vercel.app/ASL-LINKS/tnt2.html"><div><center><table><tr>
+          <!--------   <div class="box1" id="s18khel" style="cursor: pointer;">  <div class="card w-40 bg-gray-100 rounded-xl bg-base-100 shadow-lg h-48 mb-4 flex flex-col"><a href="https://asl-sports.vercel.app/ASL-LINKS/tnt2.html"><div><center><table><tr>
 <td><img class="h-28oo mt-5 m-auto opacity-100" loading="lazy" src="https://images.icc-cricket.com/image/upload/t_q-best/prd/kaefiv6vudqhj1vbqq0h" /> </td>
 <td><img class="h-28oo mt-5 m-auto opacity-100" loading="lazy" src="https://images.icc-cricket.com/image/upload/t_q-best/prd/vwd5gtsu96yeq44kntsv" /> </td>
 </tr></table></div> <div class="mb-5 opacity-100">
@@ -282,29 +211,3 @@ document.write(unescape('%3C%2F%64%69%76%3E%0A%20%20%20%20%20%20%3C%2F%64%69%76%
 
 </body>
 </html>
-
-
-</body>
-
-
-
-
-
-<script>
-
-	// Função que fecha o pop-up ao clicar no botao fechar
-	function fechar(){
-		document.getElementById('popup').style.display = 'none';
-		document.getElementById('mask').style.display = 'none';
-	}
-	// Aqui definimos o tempo para fechar o pop-up automaticamente em milissengundos
-	function abrir(){
-		document.getElementById('popup').style.display = 'block';
-		setTimeout ("fechar()", 7000);
-	}
-	function trocaordem(){
-		document.getElementById("popup").style.zIndex="1";
-	}
-	abrir();
-
-</script>
