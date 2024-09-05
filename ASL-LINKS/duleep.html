@@ -1,1 +1,70 @@
-<br><br><br><br><br><br><br><center><h1>Starts 5th September<br>Links Coming Soon
+
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.1.4/dist/hls.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.6.12/dist/plyr.css"/>
+<script src="https://cdn.jsdelivr.net/npm/plyr@3.6.12/dist/plyr.min.js"></script>
+<style>
+html {
+font-family: sans-serif;
+background: #000;
+}
+.plyr {
+height: 100%;
+width :100%;
+}
+:root {
+--plyr-color-main: green;
+}
+</style>
+</head>
+<body>
+<div>
+<video autoplay controls crossorigin playsinline>
+<source type="application/vnd.apple.mpegurl" src="https://prod-sports-eng-fa.jiocinema.com/hls/live/2100307/hd_akamai_merged_avc_eng_cricket_m4_050924/master.m3u8">
+</video>
+</div>
+
+<div id="logo-container" style="opacity:0.4;position: absolute;top: 10px; right: 100px;">
+            <a href="https://t.me/livecricket_abot" target="_blank"><img src="https://te.legra.ph/file/d3739237bf6c5d787a16d.png" height="90vh"width="90vh"style="
+            position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 3;" ></a>
+        </div>
+
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+const e = document.querySelector("video"),
+n = e.getElementsByTagName("source")[0].src,
+o = {};
+if(Hls.isSupported()) {
+var config = {
+maxMaxBufferLength: 100,
+};
+const t = new Hls(config);
+t.loadSource(n), t.on(Hls.Events.MANIFEST_PARSED, function(n, l) {
+const s = t.levels.map(e => e.height);
+o.controls = ['play-large', 'play', 'mute', 'volume', 'settings', 'fullscreen'];
+o.quality = {
+default: s[0],
+options: s,
+forced: !0,
+onChange: e => (function(e) {
+window.hls.levels.forEach((n, o) => {
+n.height === e && (window.hls.currentLevel = o)
+})
+})(e)
+};
+new Plyr(e, o)
+}), t.attachMedia(e), window.hls = t
+} else {
+new Plyr(e, o)
+}
+});
+</script>
+
+
+</body>
+</html>
