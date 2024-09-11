@@ -1,4 +1,4 @@
-#EXTINF:-1 tvg-chno="73" tvg-name="PT | Eleven 1" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/0/06/DAZN_Logo_Master.svg" group-title="## LIVE ##", DAZN SPORT 1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 14_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1
-#EXTVLCOPT:http-referrer=https://lewblivehdplay.ru/
-https://ddy6.mizhls.ru/ddy6/premium455/tracks-v1a1/mono.m3u8
+
+#EXTM3U
+#EXT-X-STREAM-INF:AVERAGE-BANDWIDTH=1540000,BANDWIDTH=1920000,RESOLUTION=1280x720,FRAME-RATE=25.000,CODECS="avc1.640029,mp4a.40.2",CLOSED-CAPTIONS=NONE
+stream.m3u8?cid=370&chunks=9c24d0653c57730974116dcaca069a2a2d4de6a3fa00eaa49f33567ecc33d596fedceccb4783649395082339f2ff3ac3efd854c880ea2dea67ce71f2201d54b2&vtoken=
