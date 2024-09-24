@@ -6,7 +6,7 @@
 
             if (result) {
 
-              window.location.href = "https://whatsapp.com/channel/0029VaGUgFxKrWR56EZxKz2l";
+              window.location.href = "https://t.me/livecricket_abot";
 
             }
 
