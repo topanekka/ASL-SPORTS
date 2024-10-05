@@ -1,0 +1,15 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:456390
+#EXT-X-TARGETDURATION:15
+#EXTINF:14.800, no desc
+mkv.php?ts=https://st64.24cwc.com/hls/token/2aymysimhwynbklhgd8fy79k8/stream-456390-1728162759127.ts
+#EXTINF:10.000, no desc
+mkv.php?ts=https://st64.24cwc.com/hls/token/2aymysimhwynbklhgd8fy79k8/stream-456391-1728162774047.ts
+#EXTINF:12.200, no desc
+mkv.php?ts=https://st64.24cwc.com/hls/token/2aymysimhwynbklhgd8fy79k8/stream-456392-1728162784170.ts
+#EXTINF:12.200, no desc
+mkv.php?ts=https://st64.24cwc.com/hls/token/2aymysimhwynbklhgd8fy79k8/stream-456393-1728162796452.ts
+#EXTINF:11.600, no desc
+mkv.php?ts=https://st64.24cwc.com/hls/token/2aymysimhwynbklhgd8fy79k8/stream-456394-1728162808456.ts
+
