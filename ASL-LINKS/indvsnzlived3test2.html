@@ -1,0 +1,449 @@
+<html><head><meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+</head><body><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  
+<style>
+    body {
+        background-color: #000; 
+        color: #fdfdfd;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    #channel-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+        max-width: 1000px;
+        margin: 0 auto;
+        list-style: none; /* Remove list dots */
+    }
+
+    #channel-list li {
+        background-color: #333; 
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease; 
+        color: #fff; 
+    }
+
+    #channel-list li:hover {
+        background-color: #555; /* Set background color on hover for the specific item */
+    }
+
+    .my-iframe {
+        position: relative;
+        padding-top: 56.25%;
+        height: 0;
+        margin-top: 20px;
+        border: 3px solid #00539CFF;
+    }
+
+    .my-iframe iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+ 
+
+        .modal {
+                display: flex;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                justify-content: center;
+                align-items: center;
+            }
+
+            .modal-content {
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.8);
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                position: relative;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.95);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            .close {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                font-size: 40px;
+                color: #888;
+                cursor: pointer;
+                transition: color 0.3s;
+            }
+
+            .close:hover {
+                color: #333;
+            }
+
+            .modal-body {
+                margin-bottom: 20px;
+                font-size: 14px;
+                color: #333;
+            }
+
+            .modal-body p {
+                font-weight: 300;
+                color: #444;
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            .modal-buttons {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .modal-buttons button {
+                padding: 10px 15px;
+                border-radius: 5px;
+                border: none;
+                font-size: 16px;
+                cursor: pointer;
+                flex: 1;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+
+            #joinChannel {
+                background-color: #25d366;
+                color: #000000;
+                font-weight: bold;
+            }
+
+            #alreadyJoined {
+                background-color: #f44336;
+                color: #fff;
+                font-weight: bold;
+            }
+
+            #joinChannel,
+            #alreadyJoined {
+                background-color: #25d366;
+                color: #000000;
+                font-weight: bold;
+                padding: 15px 20px;
+                border-radius: 5px;
+                border: none;
+                font-size: 13px;
+                cursor: pointer;
+                flex: 1;
+                transition: background-color 0.3s, transform 0.3s;
+                height: 45px;
+                width: 150px;
+            }
+
+            #alreadyJoined {
+                background-color: #1a73e8;
+            }
+
+            #joinChannel:hover,
+            #alreadyJoined:hover {
+                transform: scale(1.05);
+            }
+
+            #joinChannel:active,
+            #alreadyJoined:active {
+                transform: scale(1);
+            }
+
+            .modal-content h2 {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .modal-content p {
+                font-size: 13px;
+                color: #444;
+            }
+</style>
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Follow Our WhatsApp Channel</h2>
+            <p>Stay updated with the latest streams and news.</p>
+            <div class="modal-buttons">
+                <button id="joinChannel">FOLLOW NOW</button>
+                <button id="alreadyJoined">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
+   
+
+    <script>
+
+    $(document).ready(function() {
+        $('#myModal').fadeIn();
+
+        $('#closeModal, #alreadyJoined').on('click', function() {
+            $('#myModal').fadeOut();
+        });
+        
+        $('#joinChannel').on('click', function() {
+            window.open("https://whatsapp.com/channel/0029VaGUgFxKrWR56EZxKz2l", "_blank");
+            $('#myModal').fadeOut();
+        });
+
+        load_player_stream();
+    });
+    
+    let channelID = "110451";
+    </script>
+    <center><h2> <a href="https://asl-sports-1.vercel.app" target="_blank">HOME</a></h2></center>
+
+<div class="my-iframe" id="iframe-container">
+  
+ 
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="yes" frameborder="0"sandbox="allow-scripts allow-same-origin" src="https://asl-sports-1.vercel.app/TNT/TNTSPORTS1.html" allowfullscreen=""></iframe>
+    </div>
+  
+  
+  
+<ul id="channel-list">
+       <!-------------->
+         <li data-src="https://asl-sports-1.vercel.app/TNT/TNTSPORTS1.html">
+        
+     Server 1
+      </li>
+        <!-------------->
+       
+  
+ <!-------------->
+         <li data-src="https://sportslive24.shop/sp/play.php?play=346">
+       
+     Server 2
+         </li>
+       <!-------------->  
+         
+         
+         
+  <!--------------
+   <li data-src="https://asl-player.blogspot.com/?live=https://prod-sports-south-gm.jiocinema.com/hls/live/2109697/uhd_akamai_ctv_avc_odia_indvsnz_251024/master.m3u8">
+    
+   Server 3
+       </li>
+  <!-------------->
+ 
+ 
+  <!-------------->
+   <li data-src="https://asl-player.blogspot.com/?live=">
+       
+    HINDI
+      </li>
+  <!-------------->
+ 
+  
+  <!-------------->
+   <li data-src="https://asl-player.blogspot.com/?live=">
+       
+  ENGLISH
+      </li>
+  <!-------------->
+  
+  
+  <!-------------->
+   <li data-src="intent:#Intent;package=com.genuine.leone;type=video/mp4;end;">
+       
+    Play in (NS Player) 
+      </li>
+  <!-------------->
+  
+  <!--------------
+   <li data-src="https://asl-player.blogspot.com/?live=https://prod-sports-north-cf.jiocinema.com/hls/live/2109771/uhd_akamai_ctv_avc_ben_indvsnz_251024/master.m3u8">
+
+   Bengali
+      </li>
+  <!-------------->
+  	
+  
+  <!--------------
+     <li data-src="https://asl-player.blogspot.com/?live=https://prod-sports-south-gm.jiocinema.com/hls/live/2109721/uhd_akamai_ctv_avc_kan_indvsnz_251024/master.m3u8">
+
+   Kannada 
+      </li>
+  <!-------------->
+      
+  
+  
+    </ul>
+
+
+
+  
+  
+     <script>
+      const channelList = document.getElementById("channel-list");
+      const iframeContainer = document.getElementById("iframe-container");
+      let currentIframe = null;
+
+      channelList.addEventListener("click", (event) => {
+        if (event.target.tagName === "LI") {
+          const src = event.target.getAttribute("data-src");
+          iframeContainer.innerHTML = `<iframe src="${src}" allowfullscreen></iframe>`;
+          if (currentIframe !== null) {
+            currentIframe.remove();
+          }
+          currentIframe = iframeContainer.firstChild;
+        }
+      });
+    </script>
+
+
+<marquee><b>🛑ALERT🛑 : Join Our WhatsApp Group For Daily Live Links. LINK IN BELOW👇</b></marquee>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <style>
+        .group-card {
+            margin-bottom: 20px;
+            position: relative;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            padding: 7px;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        .whatsapp-card {
+            animation: whatsapp-border-animation 1s infinite;
+        }
+        .telegram-card {
+            animation: telegram-border-animation 1s infinite;
+        }
+        .instagram-card {
+            animation: instagram-border-animation 1s infinite;
+        }
+        @keyframes whatsapp-border-animation {
+            0% {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #25d366;
+            }
+            100% {
+                border-color: transparent;
+            }
+        }
+        @keyframes telegram-border-animation {
+            0% {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #004F7A;
+            }
+            100% {
+                border-color: transparent;
+            }
+        }
+        @keyframes instagram-border-animation {
+            0% {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #E1306C;
+            }
+            100% {
+                border-color: transparent;
+            }
+        }
+        .seoquake-nofollow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 5px 20px;
+            border-radius: 2px;
+            flex-shrink: 0;
+            transition: all 0.3s ease-in-out;
+            color: white !important;
+        }
+        .seoquake-nofollow i {
+            margin-right: 5px;
+        }
+        .whatsapp-card .seoquake-nofollow {
+            background: #25d366;
+        }
+        .telegram-card .seoquake-nofollow {
+            background: #004F7A;
+        }
+        .instagram-card .seoquake-nofollow {
+            background: #E1306C;
+        }
+        .seoquake-nofollow:hover {
+            transform: scale(1.05);
+        }
+    </style>
+    
+<div class="group-card whatsapp-card">
+        <span style="display: flex; align-items: center;"><i class="fab fa-whatsapp"
+                style="font-size:24px;color:#25d366;"></i>
+            <span style="font-weight: bold; margin-left: 10px; font-size: 0.9rem !important;">WhatsApp Channel</span>
+        </span>
+        <a class="seoquake-nofollow" href="https://whatsapp.com/channel/0029VaGUgFxKrWR56EZxKz2l" rel="nofollow noopener noreferrer"
+            target="_blank">
+            <i class="fab fa-whatsapp"></i> Follow Now
+        </a>
+    </div>
+    <div class="group-card telegram-card">
+        <span style="display: flex; align-items: center;"><i class="fab fa-telegram"
+                style="font-size:24px;color:#004F7A;"></i>
+            <span style="font-weight: bold; margin-left: 10px; font-size: 0.9rem !important;">Telegram Channel</span>
+        </span>
+        <a class="seoquake-nofollow" href="https://t.me/livecricket_abot" rel="nofollow noopener noreferrer"
+            target="_blank">
+            <i class="fab fa-telegram"></i> Join Now
+        </a>
+    </div>
+    
+        <!-------------- 
+    <div class="group-card instagram-card">
+  <span style="display: flex; align-items: center;"><i class="fab fa-instagram"
+                style="font-size:24px;color:#E1306C;"></i>
+              <span style="font-weight: bold; margin-left: 10px; font-size: 0.9rem !important;">Instagram Page</span>
+        </span>
+        <a class="seoquake-nofollow" href="https://www.instagram.com/krypto_efx" rel="nofollow noopener noreferrer"
+            target="_blank">
+            <i class="fab fa-instagram"></i> Follow Now
+        </a>
+    </div><!-------------->
+
+
+
+  
+  </body></html>
