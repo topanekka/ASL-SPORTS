@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CricMax Life - @livecricket_abot</title>
+    <link rel=icon href=https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png type=image/png sizes=250x250>
+    <meta name=viewport content='width=device-width, initial-scale=1.0' />
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.1.1/shaka-player.ui.min.js crossorigin=anonymous></script>
+    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.1.1/controls.min.css crossorigin=anonymous />
+    <style>
+        /* Overflow menu style */
+        
+        .shaka-overflow-menu {
+            background-color: rgb(41, 41, 163);
+            color: rgb(153, 153, 153);
+        }
+        
+        .shaka-overflow-menu button:hover {
+            background-color: rgb(45, 45, 45);
+        }
+        
+        .shaka-overflow-button-label {
+            color: rgb(245, 245, 245);
+        }
+        
+        .shaka-current-selection-span {
+            color: rgb(202, 202, 202);
+        }
+        
+        .material-icons-round {
+            color: rgb(230, 230, 230);
+        }
+        
+        /* Overflow sub menu style */
+        
+        .shaka-settings-menu {
+            background-color: rgb(35, 35, 35);
+            color: rgb(255, 255, 255);
+        }
+        
+        .shaka-settings-menu button {
+            color: rgb(255, 255, 255);
+        }
+        
+        .shaka-settings-menu button:hover {
+            background-color: rgb(45, 45, 45);
+        }
+    </style>
+</head>
+<center>
+
+    <body bgcolor=black style=margin:0>
+        <div data-shaka-player-container style=position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover>
+            <video autoplay muted data-shaka-player id=video poster=https://i.postimg.cc/nMfj9gjq/evision-and-Cricbuzz-collaboration.png width=1920&height=1080&mode=max&slimmage=true style=width:100%;height:100%></video>
+</center>
+</div>
+    <script>
+
+if (confirm("Join Our Telegram Channel @livecricket_abot")) {
+  window.location.href = "https://telegram.me/livecricket_abot";
+}
+async function init() {
+  const _0x5dcb03 = document.getElementById("video");
+  const _0x48ff48 = _0x5dcb03.ui;
+  const _0x4c6a4a = _0x48ff48.getControls();
+  const _0x1db09f = _0x4c6a4a.getPlayer();
+  const _0x4a433f = {
+    'controlPanelElements': ["play_pause", "time_and_duration", "spacer", "mute", "picture_in_picture", "playback_rate", "quality", "fullscreen"],
+    'playbackRates': [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
+  };
+  _0x48ff48.configure(_0x4a433f);
+  _0x1db09f.configure({
+    'drm': {
+      'clearKeys': {
+        '4301796d6d67374043c4a43c18dff7ea': "96a3dc8766317aa169149a604928ebb6"
+      }
+    }
+  });
+  window.player = _0x1db09f;
+  window.ui = _0x48ff48;
+  _0x1db09f.addEventListener("error", onPlayerErrorEvent);
+  _0x4c6a4a.addEventListener("error", onUIErrorEvent);
+  try {
+    await _0x1db09f.load("https://live2.shoq.com.pk/live/eds/Criclife2/DASH/Criclife2.mpd?");
+    console.log("The video has now been loaded!");
+  } catch (_0x5e5fbb) {
+    onPlayerError(_0x5e5fbb);
+  }
+}
+function onPlayerErrorEvent(_0x3625ce) {
+  onPlayerError(_0x3625ce.detail);
+}
+function onPlayerError(_0x1b13d8) {
+  console.error("Error code", _0x1b13d8.code, "object", _0x1b13d8);
+}
+function onUIErrorEvent(_0x47f776) {
+  onPlayerError(_0x47f776.detail);
+}
+function initFailed(_0x3aef5b) {
+  console.error("Unable to load the UI library!");
+}
+document.addEventListener("shaka-ui-loaded", init);
+document.addEventListener("shaka-ui-load-failed", initFailed);
+//-->
+
+    </script>
+</body>
+
+</html>   
