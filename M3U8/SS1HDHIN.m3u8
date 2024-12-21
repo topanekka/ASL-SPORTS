@@ -1,3 +1,6 @@
-#EXTINF:-1 tvg-id="ts24" tvg-logo="https://mediaready.videoready.tv/tatasky-epg/image/fetch/f_auto,fl_lossy,q_auto,h_250,w_250/https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-60-j5fdr6a0-v1/imageContent-60-j5fdr6a0-m1.png" group-title="Sports",Star Sports 1 Hindi HD
-#EXTVLCOPT:http-user-agent=Dalvik/2.1.0 (Linux; U; Android 11)
-https://tplay.yuvraj49.in/tp/gflKO9abyqtp/manifest.mpd?id=24
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-STREAM-INF:BANDWIDTH=3000000,AVERAGE-BANDWIDTH=3000000,CODECS="avc1.640028,ec-3.1.1,mp4a.40.5",PROGRAM-ID=1,RESOLUTION=1920x1080,FRAME-RATE=60.000
+out2.ts
+#EXT-X-STREAM-INF:BANDWIDTH=1500000,AVERAGE-BANDWIDTH=1500000,CODECS="avc1.64001f,ec-3.1.1,mp4a.40.5",PROGRAM-ID=1,RESOLUTION=1280x720,FRAME-RATE=24.000
+out1.ts
