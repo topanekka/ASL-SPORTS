@@ -1,0 +1,74 @@
+<html lang="en">
+    <head>
+        <title>Countdown Timer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Open+Sans&display=swap"
+            rel="stylesheet">
+        <!-- Style Flipdown -->
+        <link href="https://pbutcher.uk/flipdown/css/flipdown/flipdown.css" rel="stylesheet" />
+        <!-- Font Awesome -->
+        <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" />
+        <!-- ALL MIN CSS -->
+        <link rel="stylesheet" href="assets/css/all.min.css">
+        <!-- File Normalization -->
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <!-- Import CSS Files -->
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body bgcolor="yellow"><center>
+        <div class="count-down">
+            <!---<h1>INDIA vs AUSTRALIA</h1><!---->
+            	
+           <div class="flipdown" id="flipdown">
+	
+
+<div><img src='https://i.ibb.co/RB6x1Ck/Picsart-25-01-04-12-19-07-650.jpg'width='100%'></div>     
+
+
+
+      
+	second
+</div></center>
+
+        <!-- Scripts -->
+       <script src="https://pbutcher.uk/flipdown/js/flipdown/flipdown.js"></script>
+        <script src="vendor/js/main.js"></script>
+  </body>
+</html>
+
+
+
+<script>
+
+// The End Of Year Date To Countdown Date
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Unix timestamp (in seconds) to count down to
+    var toDayFromNow = (new Date("jan 22, 2025 18:30:00").getTime() / 1000) + (3600 / 60 / 60 / 24) - 1;
+    // Set Up FlipDown
+    var flipdown = new FlipDown(toDayFromNow)
+    // Start The Count Down
+    .start()
+    // Do Something When The Countdown Ends
+    .ifEnded(() => {
+        document.querySelector(".flipdown").innerHTML = `
+
+
+      <div ><a href="https://mdiskshortner.link/mkhU9O"><img src="https://i.ibb.co/RB6x1Ck/Picsart-25-01-04-12-19-07-650.jpg"width='100%'" loading="lazy" class="h-8 mt-5 m-auto opacity-100"><div class="mb-5 opacity-100"></div>
+     
+<button><b style='color:red;font-size:large;'>LIVE  NOW</button>
+
+
+
+
+`;
+    });
+});
+
+</script>
+</body>
+</html>
