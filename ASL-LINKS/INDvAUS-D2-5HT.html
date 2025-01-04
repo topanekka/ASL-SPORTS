@@ -1,1 +1,42 @@
-<script src="0indvaus.js"></script>
+
+
+<img src='https://te.legra.ph/file/8c6aef0a6c0da16b2a9da.jpg'width='100%'>
+
+<img src='https://te.legra.ph/file/0dc469efc539a590a9d8c.jpg'width='100%'>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3>Click <a id="uri" href="https://asl-sports-1.vercel.app">here</a> if you are not redirect in <span
+                        id="counter"> 5 </span>
+                    seconds.</h3>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var uri = document.getElementById("uri");
+var counter = 5;
+
+setInterval(function() {
+  counter--;
+
+  if (counter >= 0) {
+    span = document.getElementById("counter");
+    span.innerHTML = counter;
+  }
+
+  // Display 'counter' wherever you want to display it.
+  if (counter === 0) {
+    //    alert('this is where it happens');
+    clearInterval(counter);
+  }
+}, 1000);
+
+window.setTimeout(function() {
+  // Move to a new location
+  window.location.href = uri.href;
+}, 5000);
+</script>
