@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css" />
+    <meta content="website" property="og:type" />
+    <meta content="ASL SPORTS" property="og:title" />
+    <meta content="https://asl-sports-1.vercel.app" property="og:url" />
+    <meta content="Watch Live Cricket Free" property="og:description" />
+    <meta content="https://iili.io/2rPySqb.md.jpg" property="og:image" />
+    <title>ASL SPORTS</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://static.vecteezy.com/system/resources/previews/031/742/898/non_2x/transparent-circle-live-icon-free-png.png" />
+
+    <!-- Pop-up and style for the video -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* Close button styling */
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff4d4d; /* Bright red */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .close-popup:hover {
+            background-color: #e60000; /* Darker red on hover */
+        }
+
+        /* Popup container styling */
+        .mfp-hide {
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
+
+    <script>
+        // Function to close the popup
+        function closePopup() {
+            $.magnificPopup.close(); // Use Magnific Popup's close method
+        }
+
+        $(document).ready(function() {
+            // Initialize Magnific Popup
+            $('#videoLink').magnificPopup({
+                type: 'inline',
+                midClick: true // Allow opening popup on middle mouse click
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="content">
+        <center>
+            <a href="#videoStory" class="button more" id="videoLink">
+                <strong style="color:#BCC6CC;">Watch Demo Video<i class="fa fa-play-circle" aria-hidden="true">&nbsp;</i></strong>
+            </a>
+        </center>
+
+        <!-- Video popup content -->
+        <div id="videoStory" class="mfp-hide">
+            <button class="close-popup" onclick="closePopup()">Close</button>
+            <center>
+                <iframe width="300" height="520" src="https://www.youtube.com/embed/4LbmHnbwbuE?rel=0" frameborder="0" allowfullscreen></iframe>
+            </center>
+        </div>
+    </div>
+</body>
+  </html>
