@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@livecricket_abot</title>
+  <link rel="stylesheet" href="https://cxh.pages.dev/style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Fullscreen Video CSS -->
+<style>
+  #player {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+  }
+</style>
+
+<!-- Player -->
+<div id="player"></div>
+<script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
+<script>
+
+const playerInstance = jwplayer("player").setup({
+  'controls': true,
+  'displaytitle': true,
+  'autoplay': true,
+  'displaydescription': true,
+  'abouttext': '',
+  'aboutlink': "https://telegram.me/livecricket_abot",
+  'skin': {
+    'name': "netflix"
+  },
+  'logo': {
+    'file': '',
+    'link': "https://telegram.me/livecricket_abot"
+  },
+  'captions': {
+    'color': "#FFF",
+    'fontSize': 0xe,
+    'backgroundOpacity': 0x0,
+    'edgeStyle': "raised"
+  },
+  'playlist': [{
+    'image': '',
+    'sources': [{
+      'file': "https://jiotvbpklive.cdn.jio.com/bpk-tv/IDCDemo_IPL23_Sports18_MOB/Fallback/index.m3u8",
+      'label': "1080p",
+      'default': true
+    }]
+  }],
+  'advertising': {
+    'client': "vast",
+    'schedule': [{
+      'offset': "pre",
+      'tag': ''
+    }]
+  }
+});
+playerInstance.on("ready", function () {
+  playerInstance.addButton(iconPath, tooltipText, _0xd15d53, buttonId);
+  function _0xd15d53() {
+    const _0x5e8969 = playerInstance.getPlaylistItem();
+    const _0x32d145 = document.createElement('a');
+    const _0x35ea64 = _0x5e8969.file;
+    _0x32d145.setAttribute("href", _0x35ea64);
+    const _0x13fc88 = _0x5e8969.file.split('/').pop();
+    _0x32d145.setAttribute("download", _0x13fc88);
+    _0x32d145.style.display = "none";
+    document.body.appendChild(_0x32d145);
+    _0x32d145.click();
+    document.body.removeChild(_0x32d145);
+  }
+  const _0x57dcab = playerInstance.getContainer();
+  const _0x617ea7 = _0x57dcab.querySelector(".jw-button-container");
+  const _0x4b9aeb = _0x617ea7.querySelector(".jw-spacer");
+  const _0x52e3d7 = _0x57dcab.querySelector(".jw-slider-time");
+  _0x617ea7.replaceChild(_0x52e3d7, _0x4b9aeb);
+  playerInstance.on("adBlock", () => {
+    const _0x5ca0fe = document.querySelector("div.modal");
+    _0x5ca0fe.style.display = "flex";
+    document.getElementById("close").addEventListener("click", () => location.reload());
+  });
+  const _0x7a54d7 = _0x57dcab.querySelector(".jw-display-icon-rewind");
+  const _0x6973e8 = _0x7a54d7.cloneNode(true);
+  const _0x3ae3a1 = _0x6973e8.querySelector(".jw-icon-rewind");
+  _0x3ae3a1.style.transform = "scaleX(-1)";
+  _0x3ae3a1.ariaLabel = "Forward 10 Seconds";
+  const _0x28a615 = _0x57dcab.querySelector(".jw-display-icon-next");
+  _0x28a615.parentNode.insertBefore(_0x6973e8, _0x28a615);
+  _0x57dcab.querySelector(".jw-display-icon-next").style.display = "none";
+  const _0x15e85a = _0x617ea7.querySelector(".jw-icon-rewind");
+  const _0x3a018b = _0x15e85a.cloneNode(true);
+  _0x3a018b.style.transform = "scaleX(-1)";
+  _0x3a018b.ariaLabel = "Forward 10 Seconds";
+  _0x15e85a.parentNode.insertBefore(_0x3a018b, _0x15e85a.nextElementSibling);
+  [_0x3ae3a1, _0x3a018b].forEach(_0x51d7f9 => {
+    _0x51d7f9.onclick = () => {
+      playerInstance.seek(playerInstance.getPosition() + 10);
+    };
+  });
+});
+var a = confirm("Join For More Links!!");
+if (a == true) {
+  window.location.href = "https://telegram.me/livecricket_abot";
+}
+function welcome() {
+  window.open("https://telegram.me/livecricket_abot");
+}
+//-->
+
+</script>
+
+<script disable-devtool-auto='true' src='https://cdn.jsdelivr.net/npm/disable-devtool' clear-log='true' disable-select='true' disable-copy='true' disable-cut='true' disable-paste='true'></script>
+</body>
+</html>
