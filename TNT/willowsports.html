@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* General Page Styles */
+        body {
+            background: #000;
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Player Container (Initially Hidden) */
+        #player-container {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        /* Countdown Message Styling */
+        #countdown-container h2 {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Countdown Timer Styling */
+        #countdown {
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        /* Animation for Countdown Message */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Countdown Timer Glow Effect */
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff; }
+            100% { text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 50px #00ffff; }
+        }
+    </style>
+    <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
+</head>
+<body>
+
+<!-- Countdown Timer Section -->
+<div id="countdown-container">
+    <h2>Live Will Start In</h2>
+    <div id="countdown"></div>
+</div>
+
+<!-- Video Player Section (Hidden by Default) -->
+<div id="player-container">
+    <div id="player"></div>
+</div>
+
+<script>
+    function updateCountdown() {
+        var now = new Date();
+        var currentHour = now.getHours();
+        var currentMinute = now.getMinutes();
+        var currentSecond = now.getSeconds();
+        
+        var startHour = 19, startMinute = 30, startSecond = 0; // Live Start: 12:00:00 PM
+        var endHour = 23, endMinute = 00, endSecond = 0; // Live End: 6:00:00 PM
+
+        var startTime = startHour * 3600 + startMinute * 60 + startSecond;
+        var endTime = endHour * 3600 + endMinute * 60 + endSecond;
+        var currentTime = currentHour * 3600 + currentMinute * 60 + currentSecond;
+
+        if (currentTime >= startTime && currentTime < endTime) {
+            // Show the player and hide the countdown
+            document.getElementById("countdown-container").style.display = "none";
+            document.getElementById("player-container").style.display = "block";
+
+            // DRM video URL
+            var input_url = "https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/f60kqesunw/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd?|drmScheme=clearkey&drmLicense=1779c27b9d077a3ba0c9cc1bb9a94b9f:cc5cf3b7928fb9e0a1ee6a8b566f0a8e";
+
+            var parts = input_url.split('|');
+            var url = parts[0];
+            var query_string = parts[1];
+
+            var params = new URLSearchParams(query_string);
+            var drmScheme = params.get('drmScheme');
+            var drmLicense = params.get('drmLicense');
+
+            var k1, k2;
+            if (drmScheme === 'clearkey' && drmLicense) {
+                [k1, k2] = drmLicense.split(':');
+            }
+
+            if (url && k1 && k2) {
+                jwplayer("player").setup({
+                    playlist: [{
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvJUAkKfuSMC_XXv3l2yEFZ_le81J9ikIYBw&usqp=CAU", // Poster Image
+                        sources: [{
+                            file: url,
+                            drm: {
+                                clearkey: {
+                                    keyId: k1,
+                                    key: k2
+                                }
+                            }
+                        }]
+                    }],
+                    autostart: true,
+                    width: "100%",
+                    height: "100%",
+                    aspectratio: "16:9",
+                    cast: {} // Enabling Chromecast support
+                });
+            } else {
+                console.error("Failed to extract DRM keys or URL from input.");
+            }
+        } else {
+            var nextLiveTime = new Date();
+            nextLiveTime.setHours(startHour, startMinute, startSecond, 0);
+
+            if (currentTime >= endTime) {
+                // If the live session has ended, schedule for the next day
+                nextLiveTime.setDate(nextLiveTime.getDate() + 1);
+            }
+
+            var timeDiff = Math.floor((nextLiveTime - now) / 1000);
+
+            var hours = Math.floor(timeDiff / 3600);
+            var minutes = Math.floor((timeDiff % 3600) / 60);
+            var seconds = timeDiff % 60;
+
+            document.getElementById("countdown").innerHTML = 
+                hours + "h " + minutes + "m " + seconds + "s ";
+
+            setTimeout(updateCountdown, 1000);
+        }
+    }
+
+    updateCountdown(); // Start the countdown timer
+</script>
+
+</body>
+</html>
