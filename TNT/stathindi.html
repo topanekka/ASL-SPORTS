@@ -1,0 +1,45 @@
+<!DOCTYPE html><head></head><body><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+
+<script type="text/javascript"src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.2.0/dist/hlsjs-playback.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@c3voc/clappr-audio-track-selector@0.2.4/dist/audio-track-selector.min.js"></script>
+
+
+
+
+
+
+
+
+
+<div id="oper"></div>
+<div id="vid" style="height:100%;width:100%"></div>
+<script>
+ player = new Clappr.Player({
+ source: "https://hocdn.news/live/starhindi.m3u8",
+ mimeType: "application/x-mpegURL",
+maxBufferLength: 2000000,
+ autoPlay: true, 
+autoPlayVisible: 'partial',
+mute: true,
+ width: "100%",
+height:"100%",
+poster:"https://blogger.googleusercontent.com/img/a/AVvXsEiGqaZeRBZ6Y7yV5ZYSRiNRhBa5q9_EMx7R5TJcHd3XJwwHh2YhNOGt76Y4vEcUIjvIaA7W-Tw1RyMLP-4WZwVHA4mk18zwXl7HdSL5WabprIasDOWJO7jpL0zTQB4p_y7X0Rv0xwe-cJ-GvxofAgeRp2FIiNgB90n_b8Cqw0sAaZqVhJg_fi9UyfSO8KY", 
+ plugins: {"core": [LevelSelector]}, 
+ parentId: "#vid"});
+</script>
+
+<style>body{position: absolute;height:100%;width:100%;margin:0;overflow:hidden;background:#fff}vid{fullscreen:allow;width:100%;height:100%;overflow:hidden;position: absolute;}
+video {
+  object-fit: contain;
+}
+</style></body>   </html>
