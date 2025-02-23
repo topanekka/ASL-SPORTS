@@ -1,119 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ASL SPORTS</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Based on Visits</title>
     <style>
-        /* Center the buttons */
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: black;
             font-family: Arial, sans-serif;
-            flex-direction: column;
+            text-align: center;
+            padding: 50px;
         }
-
-        /* Button styling */
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 20px;
-            cursor: pointer;
-            border: none;
+        .content {
+            display: none; /* Hide content initially */
+            padding: 20px;
             border-radius: 5px;
-            background-color: #ccc;
-            color: white;
-            font-weight: bold;
+            max-width: 600px;
+            margin: auto;
         }
-
-        /* Disabled button */
-        button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
+        .first-visit {
+            background-color: lightblue;
         }
-
-        /* Enabled button */
-        button.enabled {
-            background-color: #007BFF;
-            cursor: pointer;
-        }
-
-        /* Success button */
-        button.success {
-            background-color: #4CAF50; /* Green */
+        .return-visit {
+            background-color: lightgreen;
         }
     </style>
 </head>
 <body>
-    <div class="button-container">
-        <!-- Button 1: Follow WhatsApp Channel -->
-        <button id="button1" class="enabled" onclick="openWhatsAppChannel()">
-            Follow WhatsApp Channel
-        </button>
 
-        <!-- Button 2: Share on WhatsApp -->
-        <button id="button2" disabled onclick="shareOnWhatsApp()">
-            Share on WhatsApp Status
-        </button>
+    <!-- Content for First-Time Visitors -->
+    <div id="firstVisit" class="content first-visit">
+        <h2>Welcome to Our Website!</h2>
+        <p>This is your first time here. Enjoy exploring!</p>
+    </div>
 
-        <!-- Button 3: Watch Live -->
-        <button id="button3" disabled onclick="watchLive()">
-            WATCH LIVE
-        </button>
+    <!-- Content for Returning Visitors -->
+    <div id="returnVisit" class="content return-visit">
+        <h2>Welcome Back!</h2>
+        <p>Thanks for visiting again. We appreciate you!</p>
     </div>
 
     <script>
-        let shareTime = null; // Store the time when user leaves
-        let stayedLongEnough = false; // Track if user stayed for 5 seconds
+        // Check user visits using localStorage
+        let visitCount = localStorage.getItem('visitCount');
 
-        function openWhatsAppChannel() {
-            window.open('https://whatsapp.com/channel/0029VaGUgFxKrWR56EZxKz2l', '_blank');
-            document.getElementById("button1").disabled = true;
-            setTimeout(() => {
-                document.getElementById("button2").disabled = false;
-                document.getElementById("button2").classList.add('enabled');
-            }, 5000);
-        }
-
-        function shareOnWhatsApp() {
-            let whatsappUrl = "whatsapp://send?text=*Australia vs England | LIVE | Champions Trophy |*                                                                                https://aslsports.netlify.app/cricket/AUSvsENG.html                                                                              *Click on the Link to watch Live*";
-            window.open(whatsappUrl, '_blank');
-
-            // Start timer when user leaves the page
-            shareTime = new Date().getTime();
-        }
-
-        // Detect when user returns and check time spent on WhatsApp
-        window.addEventListener("focus", function () {
-            if (shareTime) {
-                let returnTime = new Date().getTime();
-                let timeSpent = (returnTime - shareTime) / 1000;
-
-                if (timeSpent >= 5) { // If user stayed on WhatsApp for at least 5 sec
-                    stayedLongEnough = true;
-                    document.getElementById("button3").disabled = false;
-                    document.getElementById("button3").classList.add('enabled', 'success'); // Make button clickable and green
-                } else {
-                    alert("Please stay on WhatsApp for at least 5 seconds!"); // Show popup if returned too early
-                }
-
-                // Reset time
-                shareTime = null;
-            }
-        });
-
-        function watchLive() {
-            if (stayedLongEnough) {
-                window.open('https://aslsports.netlify.app/ASL-LINKS/0CT-AUSvsENG-LIVE.html', '_blank');
-            } else {
-                alert("You need to stay on WhatsApp for at least 5 seconds before watching live!");
-            }
+        if (!visitCount) {
+            // First-time visitor
+            localStorage.setItem('visitCount', 1);
+            document.getElementById("firstVisit").style.display = "block";
+        } else {
+            // Returning visitor
+            localStorage.setItem('visitCount', parseInt(visitCount) + 1);
+            document.getElementById("returnVisit").style.display = "block";
         }
     </script>
+
 </body>
-  </html>
+</html>
