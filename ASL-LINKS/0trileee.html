@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Content Based on Visits</title>
+    <title>Page Visit Tracker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,27 +29,31 @@
 
     <!-- Content for First-Time Visitors -->
     <div id="firstVisit" class="content first-visit">
-        <h2>Welcome to Our Website!</h2>
-        <p>This is your first time here. Enjoy exploring!</p>
+        <h2>Welcome to This Page for the First Time!</h2>
+        <p>This is your first time visiting this specific page.</p>
     </div>
 
     <!-- Content for Returning Visitors -->
     <div id="returnVisit" class="content return-visit">
-        <h2>Welcome Back!</h2>
-        <p>Thanks for visiting again. We appreciate you!</p>
+        <h2>Welcome Back to This Page!</h2>
+        <p>You've visited this page before. Thanks for coming back!</p>
     </div>
 
     <script>
-        // Check user visits using localStorage
-        let visitCount = localStorage.getItem('visitCount');
+        // Get the page's unique identifier (URL path)
+        let pagePath = window.location.pathname;
+        let storageKey = "visitCount_" + pagePath;  // Unique key for each page
+
+        // Check visit count for this specific page
+        let visitCount = localStorage.getItem(storageKey);
 
         if (!visitCount) {
-            // First-time visitor
-            localStorage.setItem('visitCount', 1);
+            // First-time visitor on this page
+            localStorage.setItem(storageKey, 1);
             document.getElementById("firstVisit").style.display = "block";
         } else {
-            // Returning visitor
-            localStorage.setItem('visitCount', parseInt(visitCount) + 1);
+            // Returning visitor on this page
+            localStorage.setItem(storageKey, parseInt(visitCount) + 1);
             document.getElementById("returnVisit").style.display = "block";
         }
     </script>
