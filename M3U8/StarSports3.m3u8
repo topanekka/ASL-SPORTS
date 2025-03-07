@@ -1,6 +1,4 @@
 #EXTM3U
 #EXT-X-VERSION:3
-#EXT-X-TARGETDURATION:10
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:10.0,
-http://premiumiptvmk.com:8080/F32962/7a3112d7/62584
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=4000000
+http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=373198&extension=m3u8
