@@ -3,67 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visit Tracker</title>
+    <title>Click for Points (Every 10 Sec)</title>
     <style>
-        #visitButton {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: blue;
-            color: white;
-            border: none;
-            border-radius: 5px;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
         }
-        #visitButton:disabled {
-            background-color: gray;
-            cursor: not-allowed;
+        #points {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h2>Visit Tracking Button</h2>
-    <button id="visitButton" disabled>Click Me</button>
-    <p id="statusMessage" style="font-size: 18px; font-weight: bold; color: red;">Status: Disabled</p>
+    <h1>Click the Button to Earn Points</h1>
+    <p>Points: <span id="points">0</span></p>
+    <button id="getPointBtn" onclick="addPoint()">Get Point</button>
+    <button onclick="resetPoints()">Reset Points</button>
+    <p id="countdown" style="color: red;"></p>
 
     <script>
-        // Function to update button and message status
-        function updateStatus(isVisited) {
-            const button = document.getElementById("visitButton");
-            const message = document.getElementById("statusMessage");
+        // Load points and last click time from localStorage
+        let points = localStorage.getItem("points") ? parseInt(localStorage.getItem("points")) : 0;
+        let lastClickTime = localStorage.getItem("lastClickTime") ? parseInt(localStorage.getItem("lastClickTime")) : 0;
+        const cooldownTime = 10; // 10 seconds
 
-            if (isVisited) {
-                button.removeAttribute("disabled"); // Enable button
-                message.innerHTML = "Status: Enabled"; // Update message
-                message.style.color = "green";
+        document.getElementById("points").textContent = points;
+
+        function checkCooldown() {
+            let currentTime = Math.floor(Date.now() / 1000);
+            let timeSinceLastClick = currentTime - lastClickTime;
+
+            if (timeSinceLastClick < cooldownTime) {
+                let timeLeft = cooldownTime - timeSinceLastClick;
+                document.getElementById("getPointBtn").disabled = true;
+                document.getElementById("countdown").textContent = "Wait " + timeLeft + " seconds...";
+                
+                setTimeout(checkCooldown, 1000); // Check every second
             } else {
-                button.setAttribute("disabled", "true"); // Keep button disabled
-                message.innerHTML = "Status: Disabled"; // Update message
-                message.style.color = "red";
+                document.getElementById("getPointBtn").disabled = false;
+                document.getElementById("countdown").textContent = "";
             }
         }
 
-        // Check if user has visited the website before
-        if (localStorage.getItem("visited_asl") === "yes") {
-            updateStatus(true);
-        } else {
-            updateStatus(false);
+        function addPoint() {
+            let currentTime = Math.floor(Date.now() / 1000);
+            if (currentTime - lastClickTime >= cooldownTime) {
+                points++;
+                localStorage.setItem("points", points);
+                localStorage.setItem("lastClickTime", currentTime);
+                lastClickTime = currentTime;
+                document.getElementById("points").textContent = points;
+
+                checkCooldown(); // Start cooldown check
+            }
         }
 
-        // Detect if user visits https://aslsports.netlify.app
-        function checkVisit() {
-            fetch('https://asl-sports.netlify.app')
-                .then(response => {
-                    localStorage.setItem("visited_asl", "yes"); // Mark as visited
-                    updateStatus(true);
-                })
-                .catch(error => {
-                    console.error("User has not visited yet.");
-                });
+        function resetPoints() {
+            points = 0;
+            localStorage.setItem("points", points);
+            localStorage.setItem("lastClickTime", 0);
+            lastClickTime = 0;
+            document.getElementById("points").textContent = points;
+
+            checkCooldown(); // Recheck cooldown
         }
 
-        checkVisit(); // Run the check
-
+        checkCooldown(); // Run on page load
     </script>
 
 </body>
