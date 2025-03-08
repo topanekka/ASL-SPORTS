@@ -3,58 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button with Point System</title>
+    <title>Visit Tracker</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        button {
-            padding: 15px 30px;
-            font-size: 18px;
+        #visitButton {
+            padding: 10px 20px;
+            font-size: 16px;
             cursor: pointer;
-            background-color: #007bff;
+            background-color: blue;
             color: white;
             border: none;
             border-radius: 5px;
         }
-        #points {
-            margin-top: 20px;
-            font-size: 20px;
+        #visitButton:disabled {
+            background-color: gray;
+            cursor: not-allowed;
         }
     </style>
 </head>
 <body>
 
-    <h2>Click the Button to Visit</h2>
-    <button onclick="redirect()">Go to Link</button>
-
-    <p id="points">Points: <span id="score">0</span></p>
+    <h2>Visit Tracking Button</h2>
+    <button id="visitButton" disabled>Click Me</button>
+    <p id="statusMessage" style="font-size: 18px; font-weight: bold; color: red;">Status: Disabled</p>
 
     <script>
-        function redirect() {
-            // Store the time of visit before redirecting
-            localStorage.setItem("visited", "pending");
-            window.location.href = "https://mdiskshortner.link/GpFBSfqc";
-        }
+        // Function to update button and message status
+        function updateStatus(isVisited) {
+            const button = document.getElementById("visitButton");
+            const message = document.getElementById("statusMessage");
 
-        function checkVisit() {
-            let currentUrl = window.location.href;
-            let mainUrl = "https://mdiskshortner.link/GpFBSfqc";
-
-            if (currentUrl.startsWith(mainUrl)) {
-                if (localStorage.getItem("visited") === "pending") {
-                    let points = localStorage.getItem("points") ? parseInt(localStorage.getItem("points")) : 0;
-                    points++;
-                    localStorage.setItem("points", points);
-                    localStorage.removeItem("visited"); // Prevent multiple counts
-                }
+            if (isVisited) {
+                button.removeAttribute("disabled"); // Enable button
+                message.innerHTML = "Status: Enabled"; // Update message
+                message.style.color = "green";
+            } else {
+                button.setAttribute("disabled", "true"); // Keep button disabled
+                message.innerHTML = "Status: Disabled"; // Update message
+                message.style.color = "red";
             }
-            document.getElementById("score").innerText = localStorage.getItem("points") || 0;
         }
 
-        checkVisit();
+        // Check if user has visited the website before
+        if (localStorage.getItem("visited_asl") === "yes") {
+            updateStatus(true);
+        } else {
+            updateStatus(false);
+        }
+
+        // Detect if user visits https://aslsports.netlify.app
+        function checkVisit() {
+            fetch('https://asl-sports.netlify.app')
+                .then(response => {
+                    localStorage.setItem("visited_asl", "yes"); // Mark as visited
+                    updateStatus(true);
+                })
+                .catch(error => {
+                    console.error("User has not visited yet.");
+                });
+        }
+
+        checkVisit(); // Run the check
+
     </script>
 
 </body>
