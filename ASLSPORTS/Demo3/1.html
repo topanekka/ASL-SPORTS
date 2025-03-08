@@ -34,16 +34,22 @@
 
     <script>
         function redirect() {
-            localStorage.setItem("visited", "true");
+            // Store the time of visit before redirecting
+            localStorage.setItem("visited", "pending");
             window.location.href = "https://mdiskshortner.link/GpFBSfqc";
         }
 
         function checkVisit() {
-            if (localStorage.getItem("visited") === "true" && window.location.href.includes("https://aslsports.netlify.app/ASL-LINKS/0wpl0.html")) {
-                let points = localStorage.getItem("points") ? parseInt(localStorage.getItem("points")) : 0;
-                points++;
-                localStorage.setItem("points", points);
-                localStorage.removeItem("visited"); 
+            let currentUrl = window.location.href;
+            let mainUrl = "https://aslsports.netlify.app/ASL-LINKS/0wpl0";
+
+            if (currentUrl.startsWith(mainUrl)) {
+                if (localStorage.getItem("visited") === "pending") {
+                    let points = localStorage.getItem("points") ? parseInt(localStorage.getItem("points")) : 0;
+                    points++;
+                    localStorage.setItem("points", points);
+                    localStorage.removeItem("visited"); // Prevent multiple counts
+                }
             }
             document.getElementById("score").innerText = localStorage.getItem("points") || 0;
         }
