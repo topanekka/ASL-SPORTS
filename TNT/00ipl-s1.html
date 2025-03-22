@@ -1,0 +1,28 @@
+<body bgcolor="black">
+    <script src="blast.js"></script>
+        <link rel="stylesheet" type="text/css" href="/assets/player/clappr/clap.css">
+        <script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js" type="text/javascript"></script>
+        <script src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"
+            type="text/javascript"></script>
+        <script src="//cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
+        <div id="player" style="height: 100%; width: 100%;"></div>
+        <script>
+            var player = new Clappr.Player({
+                source: 'https://vkvsd63.okcdn.ru/hls/7896338336389.m3u8/sig/YnBbc_lu37w/expires/1742703600315/srcIp/103.186.185.230/urls/185.226.55.79/clientType/13/srcAg/CHROME/mid/8877922593669/video.m3u8?p', // Default source link
+                width: '100%',
+                height: '100%',
+                autoPlay: true,
+                plugins: [HlsjsPlayback, LevelSelector],
+                mimeType: "application/x-mpegURL",
+                mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
+                parentId: "#player",
+                levelSelectorConfig: true // Disable the label selector
+            });
+            player.getPlugin('level-selector').addLevel('Default', '');
+            player.getPlugin('level-selector').addLevel('480p', '');
+            player.getPlugin('level-selector').addLevel('720p', '');
+            player.getPlugin('level-selector').selectLevel(1); // Set default playback to 480p
+        </script>
+        
+        
+    </body>
