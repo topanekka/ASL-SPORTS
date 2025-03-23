@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player with Popup</title>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; }
+        .popup {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            z-index: 1000;
+        }
+        .hidden { display: none; }
+        .content { display: none; }
+    </style>
+</head>
+<body>
+    <div class="popup" id="popup">
+        <p>Loading Live, please wait...</p>
+        <p>Live starts in <span id="countdown">10</span> seconds</p>
+    </div>
+    <div class="content" id="mainContent">
+        <iframe 
+            id="videoFrame"
+            name="123" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen="yes" 
+            frameborder="0" 
+            width="100%" 
+            height="720" 
+            sandbox="allow-scripts allow-same-origin" 
+            src="https://maxplay-tv.fun/CRICHD/play.php?cricid=starhindi" 
+            style="border-style: none; 
+                   border-width: 0px; 
+                   box-sizing: border-box; 
+                   font-style: inherit; 
+                   font-weight: inherit; 
+                   margin: -5px 0px 0px -1px; 
+                   max-width: 100%; 
+                   outline: 0px; 
+                   overflow-wrap: break-word; 
+                   padding: 0px; 
+                   vertical-align: middle; 
+                   scrolling: no; 
+                   width: 100%;" 
+            title="video player">
+        </iframe>
+    </div><script>
+    let countdown = 10;
+    const countdownElement = document.getElementById("countdown");
+    const interval = setInterval(() => {
+        countdown--;
+        countdownElement.textContent = countdown;
+        if (countdown === 0) {
+            clearInterval(interval);
+            document.getElementById("popup").classList.add("hidden");
+            document.getElementById("mainContent").style.display = "block";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
