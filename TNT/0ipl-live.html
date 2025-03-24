@@ -1,225 +1,106 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Willow Sports - @criccoder</title>
-    <link rel=icon href=https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png type=image/png sizes=250x250>
-    <meta name=viewport content='width=device-width, initial-scale=1.0' />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.1/shaka-player.ui.min.js" crossorigin="anonymous"></script>    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.1/controls.min.css" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG SPORTS TV Clappr Player with PHP-based ClearKey DRM</title>
+
+    <!-- Clappr and necessary plugins -->
+ <link rel="stylesheet" type="text/css" href="https://tv2.mgsportstv.com/Player/js/clap.css">
+    
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.js"></script>
+    <script type="text/javascript" src="https://tv2.mgsportstv.com/Player/js/level.js"></script>
+    <script src="https://tv2.mgsportstv.com/Player/js/dash-shaka-playback.js"></script>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+
     <style>
- <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            overflow: hidden; /* Prevent scrolling */
-            background-color: black; /* Set background to black */
-        }
-        #player-container {
-            position: absolute; /* Full-screen positioning */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            cursor: none; /* Hide cursor */
-        }
-        video {
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            object-fit: fit; /* Maintain aspect ratio */
-        }
-
-        body,
-        html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow: hidden;
+            background-color: #111; /* Dark background for the page */
         }
 
-        iframe {
+        #player {
             width: 100%;
-            height: 100%;
-            border: 0;
+            height: 100vh; /* Full-screen video player */
         }
-
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        #my-video {
-            width: 100%;
-            height: 100vh;
-            height: 100svh;
-        }
-
-        li a {
-            text-transform: capitalize;
-
-        }
-
-        video {
-            width: 100% !important;
-            height: 100vh;
-            height: 100svh !important;
-        }
-
-        .tg-banner {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: linear-gradient(135deg, #1da1f2, #0077b5);
-            border-radius: 12px;
-            padding: 12px 18px;
-            display: flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .tg-banner:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .tg-banner img {
-            width: 36px;
-            height: 36px;
-            margin-right: 12px;
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-
-        .tg-banner span {
-            font-size: 18px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .relative {
-            position: relative !important;
-            left: 0 !important;
-            top: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
-        }
-
-        .Top {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .Top h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #1da1f2;
-            margin-bottom: 1rem;
-            text-decoration: underline;
-        }
-
-        .Top p {
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 0.2rem;
-            opacity: 0.7;
-        }
-
-        .Bottom {
-            display: flex;
-            flex-direction: column;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            margin: 0 auto;
-            max-width: 300px;
-        }
-
-        .m2 {
-            margin-left: 2rem;
-            margin-top: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .shaka-spinner-container { 
-display: none; }
     </style>
 </head>
-<center>
 
-    <body bgcolor=black style=margin:0>
-        <div data-shaka-player-container style=position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover>
-            <video autoplay muted data-shaka-player id=video poster=https://www.disneystar.com/media/2231/7e25132017-009.jpg?width=1920&height=1080&mode=max&slimmage=true style=width:100%;height:100%></video>
-        </div>
-    </center>
-<script>
-if (confirm("Join Our Telegram Channel ASL SPORTS")) {
-  window.location.href = "https://telegram.me/livecricket_abot";
-}
-async function init() {
-  let _0x3c43bf = document.getElementById("video");
-  let _0x546815 = _0x3c43bf.ui;
-  let _0x6be097 = _0x546815.getControls();
-  let _0x3e8b6a = _0x6be097.getPlayer();
-  _0x3e8b6a.configure({
-    'drm': {
-      'clearKeys': {
-        '9872e439f21f4a299cab249c6554daa3': "0cdfcfe0d0f1fbe100554ce3ef4c4665"
-      }
-    }
-  });
-  _0x546815.configure({
-    'controlPanelElements': ["play_pause", "mute", "volume", "spacer", "time_and_duration", "quality", "fullscreen", "overflow_menu"],
-    'volumeBarColors': {
-      'base': "rgba(63, 187, 1, 1)",
-      'level': "rgb(255, 69, 0)"
-    },
-    'seekBarColors': {
-      'base': "rgb(41, 41, 163)",
-      'buffered': "rgb(35, 99, 3)",
-      'played': "rgba(63, 187, 1, 1)"
-    }
-  });
-  window.player = _0x3e8b6a;
-  window.ui = _0x546815;
-  try {
-    await _0x3e8b6a.load("https://edge4-moblive.yuppcdn.net/drm1/smil:starsports1drm.smil/manifest.mpd");
-    console.log("The video has now been loaded!");
-  } catch (_0x4bd11e) {
-    onPlayerError(_0x4bd11e);
-  }
-}
-function onPlayerErrorEvent(_0x15ad36) {
-  onPlayerError(event.detail);
-}
-function onPlayerError(_0x18c2cf) {
-  console.error("Error code", _0x18c2cf.code, "object", _0x18c2cf);
-}
-function onUIErrorEvent(_0x531665) {
-  onPlayerError(event.detail);
-}
-function initFailed(_0x137ab1) {
-  console.error("Unable to load the UI library!");
-}
-document.addEventListener("shaka-ui-loaded", init);
-document.addEventListener("shaka-ui-load-failed", initFailed);
-if (window.top !== window.self) {
-  window.addEventListener("DOMContentLoaded", function () {
-    document.body.innerHTML = "<div id=\"message\">Copy Karna Buri Baar hai</div>";
-  });
-}
+<body>
+    <div id="player"></div>
 
-</script>
+    <script>
+        // PHP variables converted to JavaScript
+        var dash_mpd_url = "https://edge4-moblive.yuppcdn.net/drm1/smil:starsports1drm.smil/manifest.mpd";
+        var drmKeyId = "9872e439f21f4a299cab249c6554daa3";
+        var drmKey = "0cdfcfe0d0f1fbe100554ce3ef4c4665";
+
+        // Chromecast and DRM Configurations
+        var chromecastConfig = {
+            appId: "9DFB77C0",
+            contentType: "video/mp4"
+        };
+
+        var drmKeys = {};
+        drmKeys[drmKeyId] = drmKey;
+
+        var drmConfig = {
+            clearKeys: drmKeys
+        };
+
+        var shakaConfig = {
+            drm: drmConfig
+        };
+
+        // Initialize Clappr player with Dash, Shaka, DRM, and Quality Selector plugins
+        var player = new Clappr.Player({
+            source: dash_mpd_url,
+            mimeType: 'application/dash+xml',
+            height: '100%',
+            width: '100%',
+            autoPlay: false,
+            plugins: [LevelSelector, DashShakaPlayback, Clappr.MediaControl],
+            mediacontrol: {
+                seekbar: "#886FFF",  // Red seek bar
+                buttons: "#C8A8D8"  // Light control buttons
+            },
+            events: {
+                onReady: function () {
+                    var clickToPausePlugin = this.getPlugin("click_to_pause");
+                    if (clickToPausePlugin) {
+                        clickToPausePlugin.disable();
+                    }
+                }
+            },
+            chromecast: chromecastConfig,
+            shakaConfiguration: shakaConfig,  // DRM configuration for Shaka
+            shakaOnBeforeLoad: function (shakaPlayerInstance) {
+                // Additional DRM configurations or events if needed before Shaka Player loads
+            },
+            parentId: "#player"
+        });
+    </script>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Show the modal when the page loads
+            $('#myModal').fadeIn();
+
+            // Close the modal when the close button or "alreadyJoined" button is clicked
+            $('#closeModal, #alreadyJoined').on('click', function() {
+                $('#myModal').fadeOut();
+            });
+        });
+    </script>
+</body>
+</html>
+
+
 </body>
 
 </html>
