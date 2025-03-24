@@ -1,28 +1,225 @@
-<body bgcolor="black">
-    <script src="blast.js"></script>
-        <link rel="stylesheet" type="text/css" href="/assets/player/clappr/clap.css">
-        <script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js" type="text/javascript"></script>
-        <script src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"
-            type="text/javascript"></script>
-        <script src="//cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
-        <div id="player" style="height: 100%; width: 100%;"></div>
-        <script>
-            var player = new Clappr.Player({
-                source: 'http://kst.moonplex.net:8080/CH2/tracks-v1a1/mono.m3u8', // Default source link
-                width: '100%',
-                height: '100%',
-                autoPlay: true,
-                plugins: [HlsjsPlayback, LevelSelector],
-                mimeType: "application/x-mpegURL",
-                mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
-                parentId: "#player",
-                levelSelectorConfig: true // Disable the label selector
-            });
-            player.getPlugin('level-selector').addLevel('Default', '');
-            player.getPlugin('level-selector').addLevel('480p', '');
-            player.getPlugin('level-selector').addLevel('720p', '');
-            player.getPlugin('level-selector').selectLevel(1); // Set default playback to 480p
-        </script>
-        
-        
-    </body>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Willow Sports - @criccoder</title>
+    <link rel=icon href=https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png type=image/png sizes=250x250>
+    <meta name=viewport content='width=device-width, initial-scale=1.0' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.1/shaka-player.ui.min.js" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.1/controls.min.css" crossorigin="anonymous">
+    <style>
+ <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+            background-color: black; /* Set background to black */
+        }
+        #player-container {
+            position: absolute; /* Full-screen positioning */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: none; /* Hide cursor */
+        }
+        video {
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            object-fit: fit; /* Maintain aspect ratio */
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #my-video {
+            width: 100%;
+            height: 100vh;
+            height: 100svh;
+        }
+
+        li a {
+            text-transform: capitalize;
+
+        }
+
+        video {
+            width: 100% !important;
+            height: 100vh;
+            height: 100svh !important;
+        }
+
+        .tg-banner {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #1da1f2, #0077b5);
+            border-radius: 12px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tg-banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .tg-banner img {
+            width: 36px;
+            height: 36px;
+            margin-right: 12px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .tg-banner span {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .relative {
+            position: relative !important;
+            left: 0 !important;
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+        }
+
+        .Top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .Top h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1da1f2;
+            margin-bottom: 1rem;
+            text-decoration: underline;
+        }
+
+        .Top p {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 0.2rem;
+            opacity: 0.7;
+        }
+
+        .Bottom {
+            display: flex;
+            flex-direction: column;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            margin: 0 auto;
+            max-width: 300px;
+        }
+
+        .m2 {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .shaka-spinner-container { 
+display: none; }
+    </style>
+</head>
+<center>
+
+    <body bgcolor=black style=margin:0>
+        <div data-shaka-player-container style=position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover>
+            <video autoplay muted data-shaka-player id=video poster=https://www.disneystar.com/media/2231/7e25132017-009.jpg?width=1920&height=1080&mode=max&slimmage=true style=width:100%;height:100%></video>
+        </div>
+    </center>
+<script>
+if (confirm("Join Our Telegram Channel ASL SPORTS")) {
+  window.location.href = "https://telegram.me/livecricket_abot";
+}
+async function init() {
+  let _0x3c43bf = document.getElementById("video");
+  let _0x546815 = _0x3c43bf.ui;
+  let _0x6be097 = _0x546815.getControls();
+  let _0x3e8b6a = _0x6be097.getPlayer();
+  _0x3e8b6a.configure({
+    'drm': {
+      'clearKeys': {
+        '9872e439f21f4a299cab249c6554daa3': "0cdfcfe0d0f1fbe100554ce3ef4c4665"
+      }
+    }
+  });
+  _0x546815.configure({
+    'controlPanelElements': ["play_pause", "mute", "volume", "spacer", "time_and_duration", "quality", "fullscreen", "overflow_menu"],
+    'volumeBarColors': {
+      'base': "rgba(63, 187, 1, 1)",
+      'level': "rgb(255, 69, 0)"
+    },
+    'seekBarColors': {
+      'base': "rgb(41, 41, 163)",
+      'buffered': "rgb(35, 99, 3)",
+      'played': "rgba(63, 187, 1, 1)"
+    }
+  });
+  window.player = _0x3e8b6a;
+  window.ui = _0x546815;
+  try {
+    await _0x3e8b6a.load("https://edge4-moblive.yuppcdn.net/drm1/smil:starsports1drm.smil/manifest.mpd");
+    console.log("The video has now been loaded!");
+  } catch (_0x4bd11e) {
+    onPlayerError(_0x4bd11e);
+  }
+}
+function onPlayerErrorEvent(_0x15ad36) {
+  onPlayerError(event.detail);
+}
+function onPlayerError(_0x18c2cf) {
+  console.error("Error code", _0x18c2cf.code, "object", _0x18c2cf);
+}
+function onUIErrorEvent(_0x531665) {
+  onPlayerError(event.detail);
+}
+function initFailed(_0x137ab1) {
+  console.error("Unable to load the UI library!");
+}
+document.addEventListener("shaka-ui-loaded", init);
+document.addEventListener("shaka-ui-load-failed", initFailed);
+if (window.top !== window.self) {
+  window.addEventListener("DOMContentLoaded", function () {
+    document.body.innerHTML = "<div id=\"message\">Copy Karna Buri Baar hai</div>";
+  });
+}
+
+</script>
+</body>
+
+</html>
