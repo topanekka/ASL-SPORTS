@@ -1,54 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Continuous Buffering Video.js Player</title>
-    
-    <!-- Video.js CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.21.1/video-js.min.css" rel="stylesheet">
-    
-    <!-- Video.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.21.1/video.min.js"></script>
+    <title>Telegram-@LiveCricket_ABot</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="MR.NITROX">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <script type="text/javascript" src="https://content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+    <script type="text/javascript">jwplayer.key = 'Khpp2dHxlBJHC8MCmLnBuV2jK/DwDnJMniwF6EO9HC/riJ712ZmbHg==';</script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
+    <script src="https://cdn.plyr.io/3.6.3/plyr.js"></script>
 
     <style>
-        body {
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        html {
+            font-family: Poppins;
+            background: #000;
             margin: 0;
+            padding: 0;
+        }
+        #myElement {
+            position: relative;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+        }
+        .loading-text {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            text-align: center;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+        }
+        .loading-text span {
+            display: inline-block;
+            margin: 0 5px;
+            font-size: 50px;
+            font-weight: bold;
+            color: #00b3ff;
+            font-family: 'Quattrocento Sans', sans-serif;
         }
     </style>
+
 </head>
 <body>
 
-    <!-- Video Player -->
-    <video id="my-video" class="video-js vjs-default-skin" controls autoplay preload="auto" width="800" height="450">
-        <source src="https://raw.githubusercontent.com/topanekka/ASL-SPORTS/main/M3U8/StarSports1hdHindi.m3u8" type="application/x-mpegURL">
-    </video>
+    <script>var channel_id = "95hin";</script>
+    <video id="myElement"></video>
 
-    <script>
-        var player = videojs('my-video', {
-            controls: true,
-            autoplay: true,
-            preload: 'auto',
-            liveui: true, // Enables UI for live streams
-            fluid: true // Responsive video player
-        });
-
-        // Buffering Event Handling
-        player.on('waiting', function() {
-            console.log('Buffering...');
-            player.play(); // Retry playing if buffering occurs
-        });
-
-        player.on('error', function() {
-            console.log('Error detected, attempting reload...');
-            player.src({src: "https://myctxa.temycssme.wiki/720p.m3u8", type: "application/x-mpegURL"});
-            player.load();
-            player.play();
+    <script type="text/javascript">
+        jwplayer("myElement").setup({
+            "playlist": [{
+                "image": "https://iili.io/3dlu5ib.md.jpg",
+                "sources": [
+                    {
+                        "default": false,
+                        "type": "hls",
+                        "file": "https://myctxa.temycssme.wiki/720p.m3u8",
+                        "label": "0"
+                    }
+                ]
+            }],
+            "primary": "html5",
+            "hlshtml": true,
+            "autostart": false,
+            "aspectratio": "16:9"
         });
     </script>
 
