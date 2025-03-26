@@ -1,4 +1,56 @@
-<body bgcolor="black">
-<div><iframe name="123" scrolling="no" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="yes" frameborder="0" width="100%"height="60%" sandbox="allow-scripts allow-same-origin" 
-src="https://spprt-cricket.vercel.app/Hindi1.html" style="border-style: none; border-width: 0px; box-sizing: border-bx; font-style: inherit; font-weight: inherit; height: 300; margin: -5px 0px 0px -1px; max-width: 100%; outline: 0px; overflow-wrap: break-word; padding: 0px; vertical-align: middle; scrolling:no;width: 100%;" title=" video player" width="560"></iframe></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Buffering Video.js Player</title>
+    
+    <!-- Video.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.21.1/video-js.min.css" rel="stylesheet">
+    
+    <!-- Video.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.21.1/video.min.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video Player -->
+    <video id="my-video" class="video-js vjs-default-skin" controls autoplay preload="auto" width="800" height="450">
+        <source src="https://raw.githubusercontent.com/topanekka/ASL-SPORTS/main/M3U8/StarSports1hdHindi.m3u8" type="application/x-mpegURL">
+    </video>
+
+    <script>
+        var player = videojs('my-video', {
+            controls: true,
+            autoplay: true,
+            preload: 'auto',
+            liveui: true, // Enables UI for live streams
+            fluid: true // Responsive video player
+        });
+
+        // Buffering Event Handling
+        player.on('waiting', function() {
+            console.log('Buffering...');
+            player.play(); // Retry playing if buffering occurs
+        });
+
+        player.on('error', function() {
+            console.log('Error detected, attempting reload...');
+            player.src({src: "https://myctxa.temycssme.wiki/720p.m3u8", type: "application/x-mpegURL"});
+            player.load();
+            player.play();
+        });
+    </script>
+
 </body>
+</html>
