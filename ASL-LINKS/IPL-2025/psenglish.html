@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASL VIDEO PLAYER</title>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; font-family: Arial, sans-serif; }
+
+        /* Popup Styling */
+        .popup {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            z-index: 1000;
+            text-align: center;
+        }
+        
+        .hidden { display: none; }
+
+        /* Countdown Animation */
+        #countdown {
+            font-size: 28px;
+            color: yellow;
+            font-weight: bold;
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        /* Video Content */
+        .content {
+            display: none;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="popup" id="popup">
+        <p>Loading Live, please wait...</p>
+        <p>Live starts in <span id="countdown">10</span> seconds</p>
+    </div>
+
+    <div class="content" id="mainContent">
+        <iframe 
+            id="videoFrame"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen 
+            frameborder="0" 
+            width="100%" 
+            height="100%" 
+            sandbox="allow-scripts allow-same-origin" 
+            src="https://psplay.site/ps/?id=ss1hd" 
+            style="border: none; box-sizing: border-box; max-width: 100%;">
+        </iframe>
+    </div>
+
+    <script>
+        let countdown = 10;
+        const countdownElement = document.getElementById("countdown");
+        const interval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            if (countdown === 0) {
+                clearInterval(interval);
+                document.getElementById("popup").classList.add("hidden");
+                document.getElementById("mainContent").style.display = "block";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
