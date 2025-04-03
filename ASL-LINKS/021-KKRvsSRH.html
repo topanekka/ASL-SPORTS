@@ -1,94 +1,126 @@
 <!DOCTYPE html><html lang="en">
 <head>
-    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASL SPORTS</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"><!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Watch IPL Live for Free!">
+<meta property="og:description" content="Watch IPL Live matches free!">
+<meta property="og:image" content="https://iili.io/3593p3u.md.jpg">
+<meta property="og:url" content="https://aslsports.netlify.app/">
+<meta property="og:type" content="website">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Watch IPL Live for Free!">
-    <meta property="og:description" content="Watch IPL Live matches free!">
-    <meta property="og:image" content="https://iili.io/3593p3u.md.jpg">
-    <meta property="og:url" content="https://aslsports.netlify.app/">
-    <meta property="og:type" content="website">
-    
 <style>
-        /* Full-page popup styling */
-        #popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Transparent background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        .popup-content {
-            background: white;
-            padding: 20px;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            width: 85%;
-            max-width: 400px;
-            z-index: 10000;
-        }
-        .popup-button {
-            display: block;
-            margin: 10px auto;
-            padding: 15px;
-            width: 100%;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-        }
-        .join-button {
-            background: #25D366;
-        }
-        .share-button {
-            background: #007bff;
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-        body {
-            overflow: hidden;
-        }
-    </style>
-</head>
-<body><div id="popup">
-    <div class="popup-content">
-        <h2>Unlock to Watch IPL</h2>
-        <p>Join our WhatsApp group and share on Status to Watch IPL Free! </p>
-        <button class="popup-button join-button" onclick="joinWhatsApp()">Join WhatsApp Group</button>
-        <button class="popup-button share-button" id="shareBtn" onclick="shareMessage()" disabled>Share on Status to Unlock</button>
-    </div>
-</div><script>
-    function joinWhatsApp() {
-    window.location.href = "https://chat.whatsapp.com/your-group-link";
-    setTimeout(() => {
-        document.getElementById("shareBtn").disabled = false;
-        document.getElementById("shareBtn").style.opacity = "1";
-        document.getElementById("shareBtn").style.cursor = "pointer";
-    }, 3000); // Enable after 10 seconds
-}
+    /* Full-page popup styling */
+    #popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    .popup-content {
+        background: black;
+        padding: 20px;
+        text-align: center;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        width: 85%;
+        max-width: 400px;
+        z-index: 10000;
+    }
+    .popup-button {
+        display: block;
+        margin: 10px auto;
+        padding: 15px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+    .join-button { background: #25D366; }
+    .share-button { background: #007bff; opacity: 0.3; cursor: not-allowed; }
+    .demo-button { background: #ff9800; }
     
-    function shareMessage() {
-    let message = encodeURIComponent("*Today's IPL Match KKR vs SRH Live Watch free!* https://aslsports.netlify.app/ASL-LINKS/021-KKRvsSRH.html");
-    let whatsappUrl = `https://wa.me/?text=${message}`;
-    window.open(whatsappUrl, '_blank');
+    /* Card-styled demo button */
+    .demo-card {
+        margin-top: 10px;
+        text-align: center;
+    }
+    body { overflow: hidden; }
+    
+    #demo-video {
+        display: none;
+        margin-top: 10px;
+        text-align: center;
+        position: relative;
+    }
+    #close-demo {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+</style>
 
-    setTimeout(() => {
-        document.getElementById("popup").style.display = "none"; // Hide popup after 10 seconds
-        document.body.style.overflow = "auto";
-    }, 10000);
-}
+</head>
+<body>
+    <div id="popup">
+        <div class="popup-content">
+            <h2>Unlock to Watch IPL</h2>
+            <p>Join our WhatsApp group and share on Status to Watch IPL Free!</p>
+            <button class="popup-button join-button" onclick="joinWhatsApp()">Join WhatsApp Group</button>
+            <button class="popup-button share-button" id="shareBtn" onclick="shareMessage()" disabled>Share on Status to Unlock</button><div class="demo-card">
+            <button class="popup-button demo-button" onclick="showDemo()">Demo Video! How to watch</button>
+            <div id="demo-video">
+                <button id="close-demo" onclick="closeDemo()">×</button>
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function joinWhatsApp() {
+        window.location.href = "https://chat.whatsapp.com/FErB2xRlnZC8ALpQ63dm9D";
+        setTimeout(() => {
+            document.getElementById("shareBtn").disabled = false;
+            document.getElementById("shareBtn").style.opacity = "1";
+            document.getElementById("shareBtn").style.cursor = "pointer";
+        }, 3000);
+    }
+
+    function shareMessage() {
+        let message = encodeURIComponent("*Today's IPL Match KKR vs SRH Live Watch free!* https://aslsports.netlify.app/ASL-LINKS/021-KKRvsSRH.html");
+        let whatsappUrl = `https://wa.me/?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+
+        setTimeout(() => {
+            document.getElementById("popup").style.display = "none";
+            document.body.style.overflow = "auto";
+        }, 10000);
+    }
+
+    function showDemo() {
+        document.getElementById("demo-video").style.display = "block";
+    }
+    
+    function closeDemo() {
+        document.getElementById("demo-video").style.display = "none";
+    }
 </script>
 
 <script language="javascript">
@@ -97,4 +129,5 @@
 document.write(unescape('%3C%73%63%72%69%70%74%20%73%72%63%3D%22%68%74%74%70%73%3A%2F%2F%61%73%6C%2D%73%70%6F%72%74%73%2D%77%65%62%2E%6E%65%74%6C%69%66%79%2E%61%70%70%2F%73%70%6F%72%74%73%2F%74%6F%70%61%6E%2E%6A%73%22%3E%3C%2F%73%63%72%69%70%74%3E%3C%2F%62%6F%64%79%3E%0A%0A'));
 //-->
 </script>
+</body>
 </html>
