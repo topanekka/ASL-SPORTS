@@ -1,0 +1,271 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  
+    <title>Live Testing</title>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  
+    <style>  :root {
+--bg-primary: #404040;
+--bg-secondary: #c2009e;
+--text-primary: #ffffff;
+--text-secondary: #ffebf7;
+--accent: #ff66cc;
+--button-hover: #b3007a;
+}
+
+body {
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+text-align: center;
+padding: 10px;
+min-height: 100vh;
+color: var(--text-primary);
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.container {
+width: 95%;
+max-width: 1000px;
+padding: 10px;
+}
+
+.video-container {
+            position: relative; /* Add this */
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+
+.video-wrapper {
+position: relative;
+width: 100%;
+padding-top: 56.25%;
+background-color: var(--bg-primary);
+}
+
+.video-wrapper iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border: none;
+}
+
+.server-container {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin-top: 15px;
+flex-wrap: wrap;
+}
+
+.server-item {
+display: flex;
+align-items: center;
+background-color: var(--bg-secondary);
+color: var(--text-secondary);
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s;
+min-width: 120px;
+justify-content: center;
+font-size: 20px;
+}
+
+.server-item:hover,
+.server-item.active {
+background-color: var(--button-hover);
+color: var(--text-primary);
+}
+
+.telegram-button {
+background-color: #2196F3;
+color: #E0E0E0;
+padding: 12px 25px;
+text-decoration: none;
+border-radius: 20px;
+font-weight: bold;
+transition: background-color 0.3s;
+display: inline-block;
+margin-top: 10px;
+font-size: 16px;
+}
+
+.telegram-button:hover {
+background-color: #1976D2;
+}
+
+.whatsapp-button {
+background-color: green;
+color: #E0E0E0;
+padding: 12px 25px;
+text-decoration: none;
+border-radius: 20px;
+font-weight: bold;
+transition: background-color 0.3s;
+display: inline-block;
+margin-top: 10px;
+font-size: 16px;
+}
+
+.whatsapp-button:hover {
+background-color: #1976D2;
+}
+
+.online-counter {
+margin-bottom: 15px;
+color: #E0E0E0;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+    .fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 102, 204, 0.8);
+            border: none;
+            color: var(--text-primary);
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            z-index: 999;
+            transition: background 0.3s;
+        }
+
+        .fullscreen-btn:hover {
+            background: var(--button-hover);
+        }
+</style>
+
+</head>  
+<body>  
+    <div class="container">
+        <div class="video-container">
+            <!-- Moved fullscreen button outside video-wrapper -->
+            <button class="fullscreen-btn" id="fullscreen-btn">
+                <i class="fas fa-expand">   Full screen</i>
+            </button>
+            <div class="video-wrapper" id="video-container">
+                <iframe src="https://aslsports.netlify.app/ASL-LINKS/IPL-2025/24live" allowfullscreen></iframe>
+            </div>
+        </div>
+        </div>  
+
+
+    <div class="server-container">  
+                        <div class="server-item active" data-src="https://aslsports.netlify.app/ASL-LINKS/IPL-2025/link1">  
+                <i class="fas fa-play-circle"></i>  
+                <span>‎ Server 1</span>  
+            </div>  
+                       <!------> <div class="server-item " data-src="https://aslsports.netlify.app/ASL-LINKS/IPL-2025/link2">  
+                <i class="fas fa-play-circle"></i>  
+                <span>‎ Server 2</span>  
+            </div><!------>  
+                      <!------>  <div class="server-item " data-src="https://aslsports.netlify.app/ASL-LINKS/IPL-2025/link3">  
+                <i class="fas fa-play-circle"></i>  
+                <span>‎ Server 3</span>  
+            </div><!------>  
+                      <!------>  <div class="server-item " data-src="https://aslsports.netlify.app/ASL-LINKS/IPL-2025/link4">  
+                <i class="fas fa-play-circle"></i>  
+                <span>‎ Server 4</span>  
+            </div><!------>  
+                        <!------><div class="server-item " data-src="https://aslsports.netlify.app/ASL-LINKS/IPL-2025/24live">  
+                <i class="fas fa-play-circle"></i>  
+                <span>‎ Hindi </span>  
+            </div><!------>  
+                        <!------><div class="server-item " data-src="intent:https://raw.githubusercontent.com/topanekka/ASL-SPORTS/main/M3U8/StarSports1hdHindi.m3u8#Intent;package=com.genuine.leone;type=video/mp4;end;">  
+                <i class="fas fa-play-circle"></i>  
+                <span>‎ NS Player</span>  
+            </div><!------>  
+                        <!------><div class="server-item " data-src="https://aslsports.netlify.app/ASL-LINKS/IPL-2025/pshindi">  
+                <i class="fas fa-play-circle"></i>  
+                <span>‎ My Hindi</span>  
+            </div><!------>  
+                        <!------><div class="server-item " data-src="https://aslsports.netlify.app/ASL-LINKS/IPL-2025/psenglish">  
+                <i class="fas fa-play-circle"></i>  
+                <span>‎ My English</span>  
+            </div><!------>  
+                        <!------<div class="server-item " data-src="https://live.incableinternet.com/v/TeGZRJFaxuA_2.m3u8">  
+                <i class="fas fa-play-circle"></i>  
+                <span>‎ Server 9</span>  
+            </div> <!------>  
+                </div>  
+      
+             
+    <a href="https://t.me/livecricket_abot" class="telegram-button" target="_blank">  
+        <i class="fa-brands fa-telegram"></i> Join Telegram  
+    </a>  
+    <a href="https://chat.whatsapp.com/FErB2xRlnZC8ALpQ63dm9D" class="whatsapp-button" target="_blank">  
+        <i class="fa-brands fa-whatsapp"></i> Join Whatsapp 
+    </a>  
+</div>  
+<script>  
+    document.addEventListener('DOMContentLoaded', () => {  
+        const videoContainer = document.getElementById('video-container');  
+        const serverItems = document.querySelectorAll('.server-item');  
+
+        serverItems.forEach(item => {  
+            item.addEventListener('click', () => {  
+                const src = item.getAttribute('data-src');  
+                const serverNumber = Array.from(serverItems).indexOf(item) + 1;  
+                  
+                videoContainer.innerHTML = `<iframe src="${src}" allowfullscreen></iframe>`;  
+                history.pushState(null, '', `?s=${serverNumber}`);  
+                serverItems.forEach(server => server.classList.remove('active'));  
+                item.classList.add('active');  
+            });  
+        });  
+    });  
+</script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoWrapper = document.querySelector('.video-wrapper');
+            const serverItems = document.querySelectorAll('.server-item');
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+            // Modified server change handler
+            serverItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const src = item.getAttribute('data-src');
+                    const serverNumber = Array.from(serverItems).indexOf(item) + 1;
+                    
+                    // Only replace the iframe, not the entire container
+                    videoWrapper.innerHTML = `<iframe src="${src}" allowfullscreen></iframe>`;
+                    history.pushState(null, '', `?s=${serverNumber}`);
+                    serverItems.forEach(server => server.classList.remove('active'));
+                    item.classList.add('active');
+                });
+            });
+
+            // Fullscreen functionality remains the same
+            fullscreenBtn.addEventListener('click', () => {
+                if (videoWrapper.requestFullscreen) {
+                    videoWrapper.requestFullscreen();
+                } else if (videoWrapper.mozRequestFullScreen) {
+                    videoWrapper.mozRequestFullScreen();
+                } else if (videoWrapper.webkitRequestFullscreen) {
+                    videoWrapper.webkitRequestFullscreen();
+                } else if (videoWrapper.msRequestFullscreen) {
+                    videoWrapper.msRequestFullscreen();
+                }
+            });
+
+            // Fullscreen icon toggle
+            document.addEventListener('fullscreenchange', () => {
+                fullscreenBtn.innerHTML = document.fullscreenElement ? 
+                    '<i class="fas fa-compress"></i>' : 
+                    '<i class="fas fa-expand"></i>';
+            });
+        });
+    </script>
+</body>  
+</html>  
