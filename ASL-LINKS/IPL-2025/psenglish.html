@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASL VIDEO PLAYER</title>
     <style>
-        body { margin: 0; padding: 0; overflow: hidden; font-family: Arial, sans-serif; }
+        body { margin: 0; padding: 0; overflow: hidden; font-family: Arial, sans-serif; height: 100vh; }
 
         /* Popup Styling */
         .popup {
@@ -42,13 +42,20 @@
         /* Video Content */
         .content {
             display: none;
-            animation: fadeIn 1s ease-in;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            box-sizing: border-box;
         }
+
     </style>
 </head>
 <body>
@@ -64,11 +71,8 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen 
             frameborder="0" 
-            width="100%" 
-            height="100%" 
             sandbox="allow-scripts allow-same-origin" 
-            src="https://psplay.site/ps/?id=ss1hd" 
-            style="border: none; box-sizing: border-box; max-width: 100%;">
+            src="https://psplay.site/ps/?id=ss1hd">
         </iframe>
     </div>
 
