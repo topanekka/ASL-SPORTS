@@ -12,53 +12,16 @@
 
     <style>
         body { background: #000; margin: 0; padding: 0; }
-        #myElement { width: 100%; height: 100vh; position: relative; }
-        #nextBtn {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            padding: 12px 25px;
-            background-color: #ffffffcc;
-            color: #000;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 999;
-        }
-        #logo-container {
-            opacity: 0.4;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 1000;
-        }
+        #myElement { width: 100%; height: 100vh; }
     </style>
 </head>
 <body>
 
     <div id="myElement"></div>
 
-    <!-- Next Button in bottom-left -->
-    <button id="nextBtn" onclick="playNextStream()">Play Next</button>
-
-    <!-- Logo -->
-    <div id="logo-container">
-        <a href="https://chat.whatsapp.com/FErB2xRlnZC8ALpQ63dm9D" target="_blank">
-            <img src="https://te.legra.ph/file/ab60636371a77cedb96e3.png" height="60" width="60">
-        </a>
-    </div>
-
+    <!-- Script for Main Stream -->
     <script type="text/javascript">
-        var mainStream = "https://vkvsd250.okcdn.ru/cmaf/8174863256108/sig/BxYlgbYeMHU/srcIp/172.69.178.85/urls/45.136.20.85/expires/1744407523175/clientType/13/srcAg/CHROME/fromCache/1/mid/9467564993324/id/8174863256108/get/hls_9467564993324.M8H9Ktvtoeg.m3u8";
-
-        var backupStreams = [
-            "https://notworking.m3u8",
-            "https://top1-cdnnew.newkso.ru/top1-cdn/7UHvIS62zx/mono.m3u8",
-            "https://live.tsports.com/mobile_hls/tsports_live_2/playlist.m3u8"
-        ];
-        var currentBackupIndex = 0;
+        var mainStream = "https://8088y.site/Api/JioTV/app/ts_live_1984.m3u8"; // Main stream
 
         var player = jwplayer("myElement").setup({
             playlist: [{
@@ -72,6 +35,21 @@
             aspectratio: "16:9"
         });
 
+        player.on('error', function() {
+            loadBackupStreams();
+        });
+    </script>
+
+    <!-- Script for Backup Streams -->
+    <script type="text/javascript">
+        var backupStreams = [
+            "https://notworking.m3u8",
+            "https://vkvsd250.okcdn.ru/cmaf/8174863256108/sig/BxYlgbYeMHU/srcIp/172.69.178.85/urls/45.136.20.85/expires/1744407523175/clientType/13/srcAg/CHROME/fromCache/1/mid/9467564993324/id/8174863256108/get/hls_9467564993324.M8H9Ktvtoeg.m3u8",
+            "https://top1-cdnnew.newkso.ru/top1-cdn/7UHvIS62zx/mono.m3u8",
+            "https://live.tsports.com/mobile_hls/tsports_live_2/playlist.m3u8"
+        ];
+        var currentBackupIndex = 0;
+
         function loadBackupStreams() {
             if (currentBackupIndex < backupStreams.length) {
                 console.log("Switching to backup stream: " + backupStreams[currentBackupIndex]);
@@ -80,17 +58,20 @@
                 currentBackupIndex++;
             } else {
                 console.log("All streams failed.");
+                // alert removed
             }
-        }
-
-        function playNextStream() {
-            loadBackupStreams();
         }
 
         player.on('error', function() {
             loadBackupStreams();
         });
     </script>
+
+    <div id="logo-container" style="opacity:0.4; position: absolute; top: 10px; left: 10px;">
+        <a href="https://chat.whatsapp.com/FErB2xRlnZC8ALpQ63dm9D" target="_blank">
+            <img src="https://te.legra.ph/file/ab60636371a77cedb96e3.png" height="60" width="60" style="position: absolute; left: 0px; top: 0px; z-index: 3;">
+        </a>
+    </div>
 
 </body>
 </html>
